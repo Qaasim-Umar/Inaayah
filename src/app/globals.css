@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/*
+ * Inaayatullah design tokens
+ * Components consume semantic names; colour values stay centralized here.
+ */
+:root {
+  --theme-background: oklch(0.985 0.006 90);
+  --theme-foreground: oklch(0.22 0.035 265);
+  --theme-surface: oklch(1 0 0);
+  --theme-surface-muted: oklch(0.965 0.012 92);
+  --theme-muted: oklch(0.93 0.018 240);
+  --theme-muted-foreground: oklch(0.46 0.035 260);
+  --theme-border: oklch(0.875 0.027 245);
+
+  --theme-brand: oklch(0.3 0.105 275);
+  --theme-brand-hover: oklch(0.255 0.1 275);
+  --theme-brand-pressed: oklch(0.22 0.085 275);
+  --theme-brand-foreground: oklch(0.99 0.003 240);
+  --theme-brand-soft: oklch(0.945 0.032 235);
+  --theme-brand-soft-strong: oklch(0.905 0.052 235);
+
+  --theme-accent: oklch(0.7 0.13 225);
+  --theme-accent-hover: oklch(0.63 0.135 225);
+  --theme-accent-foreground: oklch(0.2 0.055 270);
+  --theme-sky: oklch(0.82 0.075 225);
+  --theme-sand: oklch(0.94 0.03 83);
+  --theme-focus: oklch(0.68 0.15 225);
+
+  --theme-success: oklch(0.49 0.12 155);
+  --theme-warning: oklch(0.7 0.14 75);
+  --theme-danger: oklch(0.52 0.19 28);
+
+  --theme-radius-sm: 0.25rem;
+  --theme-radius-md: 0.5rem;
+  --theme-radius-lg: 0.75rem;
+  --theme-radius-xl: 1.25rem;
+
+  --theme-shadow-soft: 0 1rem 3rem color-mix(in oklch, var(--theme-brand) 10%, transparent);
+  --theme-shadow-card: 0 0.75rem 2rem color-mix(in oklch, var(--theme-brand) 7%, transparent);
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-oswald);
+  --font-arabic: var(--font-noto-arabic);
+
+  --color-background: var(--theme-background);
+  --color-foreground: var(--theme-foreground);
+  --color-surface: var(--theme-surface);
+  --color-surface-muted: var(--theme-surface-muted);
+  --color-muted: var(--theme-muted);
+  --color-muted-foreground: var(--theme-muted-foreground);
+  --color-border: var(--theme-border);
+  --color-brand: var(--theme-brand);
+  --color-brand-hover: var(--theme-brand-hover);
+  --color-brand-pressed: var(--theme-brand-pressed);
+  --color-brand-foreground: var(--theme-brand-foreground);
+  --color-brand-soft: var(--theme-brand-soft);
+  --color-brand-soft-strong: var(--theme-brand-soft-strong);
+  --color-accent: var(--theme-accent);
+  --color-accent-hover: var(--theme-accent-hover);
+  --color-accent-foreground: var(--theme-accent-foreground);
+  --color-sky: var(--theme-sky);
+  --color-sand: var(--theme-sand);
+  --color-focus: var(--theme-focus);
+  --color-success: var(--theme-success);
+  --color-warning: var(--theme-warning);
+  --color-danger: var(--theme-danger);
+
+  --radius-sm: var(--theme-radius-sm);
+  --radius-md: var(--theme-radius-md);
+  --radius-lg: var(--theme-radius-lg);
+  --radius-xl: var(--theme-radius-xl);
+
+  --shadow-soft: var(--theme-shadow-soft);
+  --shadow-card: var(--theme-shadow-card);
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--theme-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--theme-background);
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--theme-background);
+  color: var(--theme-foreground);
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-oswald), Arial, sans-serif;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+::selection {
+  background: var(--theme-sky);
+  color: var(--theme-brand);
+}
+
+:focus-visible {
+  outline: 0.2rem solid var(--theme-focus);
+  outline-offset: 0.2rem;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  transform: translateY(-160%);
+  border-radius: 999px;
+  background: var(--theme-brand);
+  color: var(--theme-brand-foreground);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  transition: transform 180ms ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.font-arabic {
+  font-family: var(--font-noto-arabic), serif;
+}
+
+.hero-scrim {
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in oklch, var(--theme-brand) 98%, transparent) 0%,
+      color-mix(in oklch, var(--theme-brand) 92%, transparent) 38%,
+      color-mix(in oklch, var(--theme-brand) 42%, transparent) 72%,
+      color-mix(in oklch, var(--theme-brand) 18%, transparent) 100%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 55%,
+      color-mix(in oklch, var(--theme-brand) 78%, transparent) 100%
+    );
+}
+
+.hero-editorial-pattern {
+  background-image:
+    linear-gradient(
+      90deg,
+      transparent 49.8%,
+      color-mix(in oklch, var(--theme-brand-foreground) 8%, transparent) 50%,
+      transparent 50.2%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 49.8%,
+      color-mix(in oklch, var(--theme-brand-foreground) 6%, transparent) 50%,
+      transparent 50.2%
+    );
+  background-size: 11rem 11rem;
+  mask-image: linear-gradient(90deg, transparent 0%, black 48%, black 100%);
+}
+
+@media (max-width: 47.99rem) {
+  .hero-scrim {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--theme-brand) 40%, transparent) 0%,
+      color-mix(in oklch, var(--theme-brand) 74%, transparent) 34%,
+      color-mix(in oklch, var(--theme-brand) 98%, transparent) 72%,
+      var(--theme-brand) 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
