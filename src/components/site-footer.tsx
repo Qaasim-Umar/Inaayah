@@ -1,151 +1,39 @@
 import { ArrowUpRight, Clock3, MapPin, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/lib/site";
 import { getWhatsAppHref } from "@/lib/whatsapp";
 
-const contactMessage =
-  "Assalamu Alaikum. I would like to contact Inaayatullah International Academy.";
-
 export function SiteFooter() {
-  const whatsAppHref = getWhatsAppHref(
-    siteConfig.contact.whatsapp,
-    contactMessage,
-  );
-  const currentYear = new Date().getFullYear();
-
+  const whatsAppHref = getWhatsAppHref(siteConfig.contact.whatsapp, "Assalamu Alaikum. I would like to contact Inaayatullah International Academy.");
   return (
-    <footer className="bg-brand text-brand-foreground">
-      <Container className="py-12 sm:py-14 lg:py-16">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5 lg:pr-10">
-            <Link
-              href="/"
-              aria-label={`${siteConfig.name} home`}
-              className="inline-flex items-center gap-4 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-focus/35"
-            >
-              <span className="relative size-16 shrink-0 overflow-hidden rounded-full bg-surface ring-4 ring-brand-foreground/10 sm:size-20">
-                <Image
-                  src="/brand/inaayatullah-crest.png"
-                  alt="Inaayatullah International Academy circular crest"
-                  fill
-                  sizes="(min-width: 640px) 80px, 64px"
-                  className="object-cover"
-                />
-              </span>
-              <span>
-                <span className="block font-display text-2xl font-semibold leading-tight sm:text-3xl">
-                  Inaayatullah
-                </span>
-                <span className="mt-1 block text-xs font-extrabold uppercase tracking-[0.14em] text-brand-foreground/70">
-                  International Academy
-                </span>
-              </span>
+    <footer id="contact" className="bg-brand text-brand-foreground">
+      <Container className="pb-6 pt-10 sm:pt-14">
+        <div className="grid gap-9 lg:grid-cols-[1.1fr_0.7fr_1.2fr] lg:gap-12">
+          <div>
+            <Link href="/" aria-label={`${siteConfig.name} home`} className="inline-flex items-center gap-3 rounded-md">
+              <Image src="/brand/inaayatullah-crest.png" alt="Academy crest" width={56} height={56} className="size-14 shrink-0 rounded-full bg-surface" />
+              <span><span className="block font-display text-xl font-medium">Inaayatullah</span><span className="mt-1 block text-[0.55rem] font-bold uppercase tracking-[0.13em] text-brand-foreground/75">International Academy</span></span>
             </Link>
-
-            <p className="mt-6 max-w-md text-lg font-bold leading-8 text-brand-foreground/90">
-              {siteConfig.motto}
-            </p>
-            <p className="mt-2 max-w-md text-sm leading-7 text-brand-foreground/70">
-              Islamic values and contemporary learning for knowledgeable,
-              responsible and globally competitive leaders.
-            </p>
-
-            <ButtonLink
-              href={whatsAppHref ?? "/contact"}
-              variant="outline-light"
-              className="mt-7"
-              {...(whatsAppHref
-                ? { target: "_blank", rel: "noreferrer" }
-                : {})}
-            >
-              {whatsAppHref ? "Chat with the Academy" : "Contact the Academy"}
-              {whatsAppHref ? (
-                <MessageCircle aria-hidden="true" className="size-5" />
-              ) : (
-                <ArrowUpRight aria-hidden="true" className="size-5" />
-              )}
-            </ButtonLink>
+            <p className="mt-5 font-display text-xl italic text-sky">{siteConfig.motto}.</p>
+            <p className="mt-3 max-w-xs text-sm leading-7 text-brand-foreground/75">Faith, learning and a caring community.<br />A brighter future begins together.</p>
+            {whatsAppHref && <a href={whatsAppHref} target="_blank" rel="noreferrer" className="mt-4 inline-flex min-h-12 items-center gap-2 text-sm font-bold text-sky">Chat with our team <MessageCircle aria-hidden="true" className="size-4" /></a>}
           </div>
-
-          <nav aria-label="Footer navigation" className="lg:col-span-3">
-            <h2 className="text-xs font-extrabold uppercase tracking-[0.18em] text-sky">
-              Explore
-            </h2>
-            <ul className="mt-5 grid grid-cols-2 gap-x-5 gap-y-1 lg:grid-cols-1">
-              {siteConfig.navigation.slice(1).map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="inline-flex min-h-11 items-center border-b border-transparent text-sm font-bold text-brand-foreground/80 transition-colors duration-200 hover:border-brand-foreground/40 hover:text-brand-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-focus/35"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+          <nav aria-label="Footer navigation">
+            <h2 className="text-xs font-extrabold uppercase tracking-[0.15em] text-sky">Find your way</h2>
+            <ul className="mt-4 grid grid-cols-2 gap-x-5 lg:grid-cols-1">
+              {siteConfig.navigation.slice(1).filter(item => item.label !== 'Contact').map((item) => <li key={item.href}><Link href={item.href} className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-brand-foreground/80 transition-colors hover:text-sky">{item.label}<ArrowUpRight aria-hidden="true" className="size-3" /></Link></li>)}
             </ul>
           </nav>
-
-          <div className="lg:col-span-4">
-            <h2 className="text-xs font-extrabold uppercase tracking-[0.18em] text-sky">
-              Visit and school hours
-            </h2>
-
-            <div className="mt-6 flex gap-4 border-b border-brand-foreground/15 pb-6">
-              <MapPin
-                aria-hidden="true"
-                className="mt-1 size-5 shrink-0 text-sky"
-                strokeWidth={1.8}
-              />
-              <div>
-                <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-brand-foreground/55">
-                  Location
-                </p>
-                <p className="mt-2 text-sm font-bold leading-7">
-                  {siteConfig.location}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-6 flex gap-4">
-              <Clock3
-                aria-hidden="true"
-                className="mt-1 size-5 shrink-0 text-sky"
-                strokeWidth={1.8}
-              />
-              <div className="min-w-0 flex-1">
-                <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-brand-foreground/55">
-                  School hours
-                </p>
-                <dl className="mt-3 space-y-3 text-sm">
-                  {siteConfig.schoolHours.map((schedule) => (
-                    <div
-                      key={schedule.days}
-                      className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 lg:flex-col xl:flex-row"
-                    >
-                      <dt className="font-bold text-brand-foreground/90">
-                        {schedule.days}
-                      </dt>
-                      <dd className="shrink-0 text-brand-foreground/65">
-                        {schedule.hours}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </div>
+          <div className="rounded-2xl border border-brand-foreground/15 bg-brand-foreground/5 p-5 sm:p-6">
+            <h2 className="text-xs font-extrabold uppercase tracking-[0.15em] text-sky">Come and say hello</h2>
+            <p className="mt-5 flex items-start gap-3 text-sm font-semibold"><MapPin aria-hidden="true" className="size-5 shrink-0 text-sky" />{siteConfig.location}</p>
+            <div className="mt-5 flex items-start gap-3"><Clock3 aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-sky" /><dl className="space-y-3 text-sm">{siteConfig.schoolHours.map((schedule) => <div key={schedule.days}><dt className="font-bold">{schedule.days}</dt><dd className="mt-0.5 text-brand-foreground/75">{schedule.hours}</dd></div>)}</dl></div>
+            <p className="mt-5 border-t border-brand-foreground/15 pt-4 text-xs leading-6 text-brand-foreground/75">For admission enquiries, speak with our school office during school hours.</p>
           </div>
         </div>
-
-        <div className="mt-12 border-t border-brand-foreground/15 pt-6 text-sm text-brand-foreground/60 sm:flex sm:items-center sm:justify-between sm:gap-6">
-          <p>
-            © {currentYear} {siteConfig.name}. All rights reserved.
-          </p>
-          <p className="mt-2 sm:mt-0">Iwo, Osun State, Nigeria</p>
-        </div>
+        <div className="mt-9 flex flex-col gap-2 border-t border-brand-foreground/15 pt-5 text-xs leading-6 text-brand-foreground/70 sm:flex-row sm:justify-between"><p>© {new Date().getFullYear()} {siteConfig.name}.</p><p>Faith. Knowledge. Character.</p></div>
       </Container>
     </footer>
   );

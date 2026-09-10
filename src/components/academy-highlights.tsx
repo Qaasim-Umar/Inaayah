@@ -1,45 +1,70 @@
-import { Container } from "@/components/ui/container";
+"use client";
+
+import { Pause, Play } from "lucide-react";
+import { useState } from "react";
 
 const highlights = [
-  { value: "Early Years to SSS 3", label: "Complete learning pathway" },
-  { value: "2 years", label: "Tahfiz completion programme" },
-  { value: "Boys & girls", label: "Boarding facilities available" },
-  { value: "Iwo, Osun", label: "Proudly serving Nigeria" },
+  { value: "A complete journey", label: "Early Years to Secondary" },
+  { value: "Rooted in the Qur’an", label: "Focused two year Tahfiz" },
+  { value: "A place to belong", label: "Day and boarding school" },
+  { value: "Iwo, Osun State", label: "Learning with purpose" },
 ] as const;
 
+function HighlightItems({ duplicate = false }: { duplicate?: boolean }) {
+  return (
+    <div className="academy-ticker-group" aria-hidden={duplicate || undefined}>
+      {highlights.map(({ value, label }) => (
+        <div key={value} className="academy-ticker-item">
+          <span className="academy-ticker-separator" aria-hidden="true" />
+          <span className="academy-ticker-copy">
+            <strong className="font-display text-base font-semibold leading-none text-brand-foreground sm:text-lg">
+              {value}
+            </strong>
+            <span className="border-l border-brand-foreground/25 pl-2.5 text-[0.65rem] font-extrabold uppercase tracking-[0.11em] text-brand-foreground/70 sm:text-xs">
+              {label}
+            </span>
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function AcademyHighlights() {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
     <section
-      id="academy-highlights"
       aria-labelledby="academy-highlights-title"
-      className="scroll-mt-32 bg-surface"
+      className="academy-ticker-shell relative mt-8 overflow-hidden border-y border-brand-foreground/15 bg-brand text-brand-foreground sm:mt-10"
     >
-      <Container className="grid gap-10 py-16 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-16 lg:py-20">
-        <div>
-          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-accent-foreground">
-            The Academy at a glance
-          </p>
-          <h2
-            id="academy-highlights-title"
-            className="mt-4 max-w-lg text-4xl font-semibold text-foreground sm:text-5xl"
-          >
-            One Academy. A balanced education.
-          </h2>
+      <h2 id="academy-highlights-title" className="sr-only">
+        The Academy at a glance
+      </h2>
+      <div className="academy-ticker-window">
+        <div
+          id="academy-highlights-track"
+          className="academy-ticker-track"
+          data-paused={isPaused}
+        >
+          <HighlightItems />
+          <HighlightItems duplicate />
         </div>
-
-        <dl className="grid border-l border-t border-border sm:grid-cols-2">
-          {highlights.map((item) => (
-            <div key={item.value} className="border-b border-r border-border px-6 py-7 sm:p-8">
-              <dt className="text-xs font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
-                {item.label}
-              </dt>
-              <dd className="mt-3 font-display text-2xl font-bold text-brand sm:text-3xl">
-                {item.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </Container>
+      </div>
+      <button
+        type="button"
+        onClick={() => setIsPaused((paused) => !paused)}
+        aria-controls="academy-highlights-track"
+        aria-label={isPaused ? "Resume Academy highlights" : "Pause Academy highlights"}
+        title={isPaused ? "Resume Academy highlights" : "Pause Academy highlights"}
+        className="academy-ticker-toggle"
+      >
+        {isPaused ? (
+          <Play aria-hidden="true" className="size-4" fill="currentColor" />
+        ) : (
+          <Pause aria-hidden="true" className="size-4" fill="currentColor" />
+        )}
+      </button>
     </section>
   );
 }

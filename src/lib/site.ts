@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "IIA",
   location: "Iwo, Osun State, Nigeria",
   motto: "Producing the best of mankind",
-  tagline: "Where Faith Inspires Excellence and Knowledge Builds the Future.",
+  tagline: "Where faith inspires excellence and knowledge builds the future.",
   founder: {
     name: "Dr. Sirajudeen Bilal Al-Asrau",
     role: "Founder, Proprietor and Director",
@@ -28,50 +28,49 @@ export const siteConfig = {
       name: "Early Years",
       stage: "Foundation stage",
       description:
-        "Guided play, early literacy, numeracy, Qur’an recitation and Islamic manners establish a confident start to learning.",
+        "Guided play, early literacy, numeracy and Islamic manners create a confident start.",
     },
     {
       key: "nursery",
       name: "Nursery",
       stage: "Nursery 1 to 2",
       description:
-        "Structured and engaging experiences strengthen communication, curiosity, creativity and positive learning habits.",
+        "Structured activities strengthen communication, curiosity, creativity and positive learning habits.",
     },
     {
       key: "primary",
       name: "Primary School",
       stage: "Primary 1 to 6",
       description:
-        "A strong academic foundation develops literacy, mathematical competence, scientific reasoning and Islamic character.",
+        "Strong academics develop literacy, mathematical reasoning, scientific thinking and Islamic character.",
     },
     {
       key: "secondary",
       name: "Secondary School",
       stage: "JSS 1 to 3 · SSS 1 to 3",
       description:
-        "Science, Commercial and Arts pathways prepare students for applicable Nigerian examinations and higher education.",
+        "Science, Commercial and Arts pathways prepare students for examinations and higher education.",
     },
     {
       key: "tahfiz",
       name: "Tahfizul Qur’an",
       stage: "Two year Hifz programme",
       description:
-        "Individual memorisation plans, Tajweed, daily revision and character mentoring support complete Qur’an memorisation.",
+        "Personal memorisation plans, Tajweed, daily revision and mentoring support complete Qur’an memorisation.",
     },
     {
       key: "arrabiyyah",
       name: "Arrabiyyah",
       stage: "Arabic & Islamic Studies",
       description:
-        "Focused Arabic language and Islamic studies deepen understanding, expression and connection to authentic scholarship.",
+        "Arabic language and Islamic studies deepen understanding, expression and connection to scholarship.",
     },
   ],
   tahfiz: {
     completionYears: 2,
     introduction:
-      "Our distinguished Tahfiz programme develops young Muslims who memorise the Noble Qur’an with precision, understand its teachings and embody its values while excelling in contemporary education.",
-    commitment:
-      "A firm two year commitment to complete Qur’an memorisation.",
+      "Our Tahfiz programme combines precise Qur’an memorisation with understanding, character and strong academic progress.",
+    commitment: "Complete Qur’an memorisation in two years.",
     features: [
       "Complete Qur’an memorisation",
       "Tajweed",
@@ -81,87 +80,91 @@ export const siteConfig = {
       "Leadership training",
     ],
     approach: [
-      "Experienced Huffaz and qualified scholars",
+      "Experienced and qualified Huffaz",
       "Individual memorisation plans",
-      "Daily revision schedules",
+      "Structured daily revision",
       "Small learning groups",
       "Character mentoring",
-      "Integration with conventional education",
+      "Academic integration",
     ],
   },
   directorMessage: {
     greeting: "Assalamu Alaikum Warahmatullahi Wabarakatuh",
     title: "Nurturing the intellect and the soul.",
-    quotation:
-      "True education extends beyond academic achievement. It develops individuals who possess sound knowledge, unwavering faith, exemplary character and a strong sense of responsibility towards Allah and society.",
-    summary:
-      "Our Academy combines the timeless guidance of the Qur’an and Sunnah with contemporary educational practice, preparing learners to excel in higher education, professional careers and community leadership.",
+    paragraphs: [
+      "It is my great pleasure to welcome you to Inaayatullah International Academy, a distinguished institution established with a clear vision of providing an exceptional educational experience that nurtures both the intellect and the soul.",
+      "Education is one of the greatest trusts bestowed upon humanity. At Inaayatullah International Academy, we believe that true education extends beyond academic achievement. It is the process of developing individuals who possess sound knowledge, unwavering faith, exemplary character, and a strong sense of responsibility towards Allah and society.",
+      "Our Academy provides an environment where students are encouraged to think critically, learn confidently, worship sincerely, and serve humanity selflessly. We strive to combine the timeless guidance of the Qur'an and Sunnah with contemporary educational best practices, preparing our learners to excel in higher education, professional careers, and community leadership.",
+      "Every member of our staff is committed to creating a safe, caring, and inspiring atmosphere where each learner is respected, valued, and empowered to reach his or her fullest potential. Through academic excellence, Islamic values, discipline, and innovation, we aim to raise a generation that will become ambassadors of integrity and positive change across the world.",
+      "As our Academy continues to grow, we remain committed to improving our facilities, expanding our programmes, and embracing modern teaching methods while preserving the noble values upon which our institution was founded.",
+      "We warmly invite parents, guardians, educational partners, and well wishers to join us on this remarkable journey of nurturing future leaders who will contribute meaningfully to their communities, their nation, and the global society.",
+      "May Almighty Allah continue to bless our efforts, guide our students, strengthen our teachers, and reward all those who support this noble mission.",
+    ],
     closing: "Baarakallahu Feekum.",
   },
   careAndPartnership: {
     introduction:
-      "Every learner is supported through attentive care, clear safeguarding and close collaboration between home and school.",
+      "Attentive care, clear safeguarding and family partnership help every learner feel secure and thrive.",
   },
   studentCare: {
     introduction:
-      "The welfare and safety of every student are among our highest priorities. Our staff work closely with parents to help each learner thrive academically, spiritually, socially and emotionally.",
+      "We protect every learner’s wellbeing and work closely with families to support balanced growth.",
     supportAreas: [
       {
         title: "Safeguarding and protection",
         description:
-          "A secure school environment, trained staff and continuous supervision help every learner feel respected and protected.",
+          "Trained staff and continuous supervision provide a secure environment for every learner.",
       },
       {
         title: "Health and wellbeing",
         description:
-          "First aid, health awareness, clean water, sanitation and clear emergency procedures support daily wellbeing.",
+          "First aid, clean facilities and clear procedures support health and daily wellbeing.",
       },
       {
         title: "Guidance for growth",
         description:
-          "Academic mentoring, career guidance and personal and moral counselling help learners grow with confidence.",
+          "Academic mentoring and personal counselling help learners grow with confidence.",
       },
       {
         title: "Individual support",
         description:
-          "Focused guidance and special intervention programmes are available when a learner needs additional care.",
+          "Focused guidance and timely intervention meet each learner’s individual needs.",
       },
     ],
     boarding: {
       title: "A secure home for boys and girls.",
       description:
-        "The Academy provides safe boarding facilities where students are supported through attentive care, clear routines and a strong sense of community.",
+        "Safe boarding combines attentive care, clear routines and a strong sense of community.",
       developmentTitle: "Female hostel expansion",
-      developmentStatus:
-        "Additional female hostel accommodation is currently under construction.",
+      developmentStatus: "Additional female accommodation is under construction.",
     },
   },
   parentPartnership: {
     introduction:
-      "Parents are the first teachers of every child. Open communication and active collaboration between home and school help every learner flourish academically, spiritually and socially.",
+      "Open communication and active partnership with families help every learner flourish at school.",
     engagement: [
       {
         title: "Progress reports",
         description:
-          "Clear academic updates help families understand and support each learner’s development.",
+          "Clear academic updates help families support learner progress.",
       },
       {
         title: "Parent consultations",
         description:
-          "Meaningful conversations with teachers create shared direction and timely support.",
+          "Regular conversations with teachers provide shared direction and timely support.",
       },
       {
         title: "Open days and events",
         description:
-          "School gatherings strengthen relationships across families and the Academy community.",
+          "School events strengthen relationships across families and the Academy.",
       },
     ],
     commitment:
-      "We uphold high academic standards and Islamic values, protect every child’s wellbeing, communicate openly and treat every learner with dignity and respect.",
+      "We uphold academic excellence, Islamic values, open communication, care and respect.",
   },
   gallery: {
     introduction:
-      "A glimpse of learning, discovery and community across each stage of the Academy.",
+      "A glimpse of learning, discovery and community across the Academy.",
     items: [
       {
         title: "Learning through discovery",
@@ -188,66 +191,66 @@ export const siteConfig = {
   },
   admissions: {
     introduction:
-      "Applications are welcome from families seeking an education that combines academic excellence with authentic Islamic values.",
+      "Applications are open to families seeking strong academics, attentive care and authentic Islamic values.",
     steps: [
       {
         number: "01",
-        title: "Request and submit the form",
+        title: "Request the form",
         description:
-          "Complete the admission application and provide the required documents.",
+          "Complete the admission form and provide the required supporting documents.",
       },
       {
         number: "02",
-        title: "Assessment and interview",
+        title: "Assessment",
         description:
-          "Attend an entrance assessment where applicable and meet the Admissions Team.",
+          "Attend the required assessment and meet with the Admissions Team.",
       },
       {
         number: "03",
         title: "Offer and registration",
         description:
-          "Receive the admission offer, complete registration and prepare to begin.",
+          "Accept the admission offer, complete registration and prepare to begin.",
       },
     ],
   },
   whyChoose: {
     introduction:
-      "A balanced educational experience built around faith, excellence, safety and readiness for the future.",
+      "A balanced education built around faith, academic excellence, safety and future readiness.",
     reasons: [
       {
         number: "01",
-        title: "Integrated Islamic and contemporary education",
+        title: "Islamic and contemporary education",
       },
       {
         number: "02",
-        title: "Qualified and experienced teachers",
+        title: "Qualified, experienced teachers",
       },
       {
         number: "03",
-        title: "Firm two year Tahfiz completion",
+        title: "Focused two year Tahfiz",
       },
       {
         number: "04",
-        title: "Safe learning and boarding environment",
+        title: "Safe learning and boarding",
       },
       {
         number: "05",
-        title: "Technology supported teaching",
+        title: "Technology supported learning",
       },
       {
         number: "06",
-        title: "Leadership and character development",
+        title: "Leadership and character",
       },
     ],
   },
   navigation: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Academics", href: "/academics" },
-    { label: "Tahfiz", href: "/tahfiz" },
+    { label: "About", href: "/#who-we-are" },
+    { label: "Academics", href: "/#academic-programmes" },
+    { label: "Tahfiz", href: "/#tahfiz" },
     { label: "Student Life", href: "/student-life" },
-    { label: "Admissions", href: "/admissions" },
-    { label: "Contact", href: "/contact" },
+    { label: "Admissions", href: "/#admissions" },
+    { label: "Contact", href: "/#contact" },
   ],
   media: {
     hero: {

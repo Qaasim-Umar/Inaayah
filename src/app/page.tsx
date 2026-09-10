@@ -1,7 +1,6 @@
 import { AcademicProgrammes } from "@/components/academic-programmes";
 import { AcademyHighlights } from "@/components/academy-highlights";
 import { AdmissionsInvitation } from "@/components/admissions-invitation";
-import { CarePartnership } from "@/components/care-partnership";
 import { DirectorWelcome } from "@/components/director-welcome";
 import { GalleryPreview } from "@/components/gallery-preview";
 import { Hero } from "@/components/hero";
@@ -20,12 +19,11 @@ export default function Home() {
         <AcademyHighlights />
         <WhoWeAre />
         <AcademicProgrammes />
-        <TahfizSpotlight />
         <DirectorWelcome />
-        <CarePartnership />
-        <GalleryPreview />
+        <TahfizSpotlight />
         <WhyChooseUs />
         <AdmissionsInvitation />
+        <GalleryPreview />
       </main>
       <SiteFooter />
     </>

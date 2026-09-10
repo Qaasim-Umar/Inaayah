@@ -1,9 +1,12 @@
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/lib/site";
+
+const heroButtonClassName =
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-extrabold transition-[background-color,color,border-color,box-shadow] duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-focus/35";
 
 export function Hero() {
   return (
@@ -11,37 +14,47 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative isolate overflow-hidden bg-brand text-brand-foreground"
     >
-      <div aria-hidden="true" className="hero-editorial-pattern absolute inset-0 -z-10" />
+      <div aria-hidden="true" className="hero-editorial-pattern hero-pattern-motion absolute inset-0 -z-10" />
 
       <Container className="grid min-h-[780px] grid-rows-[auto_1fr] lg:min-h-[calc(100dvh-9rem)] lg:max-h-[900px] lg:grid-cols-[3fr_2fr] lg:grid-rows-1">
-        <div className="relative z-10 flex flex-col justify-center pb-4 pt-16 sm:pt-20 lg:py-20">
+        <div className="relative z-10 flex flex-col items-center justify-center pb-4 pt-16 text-center sm:pt-20 lg:items-start lg:py-20 lg:text-left">
           <h1
             id="hero-title"
-            className="max-w-4xl text-balance text-5xl font-semibold tracking-[-0.04em] text-brand-foreground sm:text-6xl lg:text-6xl xl:text-7xl"
+            className="hero-title-enter max-w-4xl text-balance font-hero text-[clamp(1.7rem,8.5vw,3.45rem)] font-extrabold leading-[0.92] tracking-[-0.045em] text-brand-foreground sm:text-6xl lg:text-6xl xl:text-7xl"
           >
-            Where faith inspires <em className="font-display text-sky">excellence.</em>
+            <span className="block whitespace-nowrap">
+              Where faith inspires
+            </span>
+            <span className="block text-sky">
+              excellence.
+            </span>
           </h1>
-          <p className="mt-7 max-w-2xl text-pretty text-base leading-8 text-brand-foreground/80 sm:text-lg">
-            A distinguished private academy combining authentic Islamic
-            education with contemporary learning to prepare principled,
-            knowledgeable and globally capable leaders.
+          <p className="hero-copy-enter mt-7 max-w-2xl text-pretty text-base leading-8 text-brand-foreground/80 sm:text-lg">
+            Authentic Islamic education and contemporary learning that shape
+            principled, knowledgeable and capable leaders.
           </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/admissions" variant="accent">
-              Begin an admission enquiry
+          <div className="hero-actions-enter mt-9 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center lg:justify-start">
+            <Link
+              href="/#admissions"
+              className={`${heroButtonClassName} motion-button bg-accent text-accent-foreground shadow-soft hover:bg-accent-hover active:bg-accent-hover`}
+            >
+              Enquire about admission
               <MoveRight aria-hidden="true" className="size-5" />
-            </ButtonLink>
-            <ButtonLink href="/academics" variant="outline-light">
+            </Link>
+            <Link
+              href="/#academic-programmes"
+              className={`${heroButtonClassName} motion-button border border-brand-foreground/35 bg-brand-foreground/10 text-brand-foreground hover:bg-brand-foreground/15 active:bg-brand-foreground/20`}
+            >
               Explore our programmes
-            </ButtonLink>
+            </Link>
           </div>
         </div>
 
-        <div className="relative min-h-[390px] sm:min-h-[450px] lg:min-h-0">
+        <div className="hero-art-enter relative min-h-[390px] sm:min-h-[450px] lg:min-h-0">
           <div
             aria-hidden="true"
-            className="absolute bottom-10 left-1/2 aspect-square w-[92%] -translate-x-1/2 rounded-full border border-brand-foreground/10 bg-brand-foreground/5 lg:bottom-16 lg:w-[105%]"
+            className="hero-orbit absolute bottom-10 left-1/2 aspect-square w-[92%] -translate-x-1/2 rounded-full border border-brand-foreground/10 bg-brand-foreground/5 lg:bottom-16 lg:w-[105%]"
           />
           <Image
             src={siteConfig.media.hero.src}
@@ -49,7 +62,7 @@ export function Hero() {
             fill
             priority
             sizes="(min-width: 1024px) 46vw, 90vw"
-            className="object-contain object-bottom"
+            className="hero-people object-contain object-bottom"
           />
         </div>
       </Container>

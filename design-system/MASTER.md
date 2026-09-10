@@ -2,85 +2,54 @@
 
 ## Direction
 
-Editorial Islamic Academic: dignified, contemporary, warm, visually led and academically aspirational. The composition should feel like an established Nigerian school rather than a generic software template.
-
-## Source of truth
-
-- Runtime theme tokens live in `src/app/globals.css`.
-- Browser-only theme values live in `src/lib/theme.ts`.
-- School-wide factual content lives in `src/lib/site.ts`.
-- Components consume semantic utilities such as `bg-brand`, `text-foreground`, `bg-surface`, `border-border` and `ring-focus`.
-- Raw colour values do not belong in React components.
-
-## Brand palette
-
-- `brand`: deep navy for primary actions, headings and prominent surfaces.
-- `sky`: light blue drawn from the circular crest.
-- `accent`: cyan for focus, links and restrained highlights.
-- `background`: warm off-white page canvas.
-- `surface`: white content surface.
-- `surface-muted`: warm neutral supporting surface.
-- `sand`: restrained warm accent.
-- `foreground` and `muted-foreground`: accessible text roles.
-- `success`, `warning` and `danger`: semantic feedback only.
+A welcoming school community, expressed through framed compositions, soft colour, rounded panels and clear, balanced content. Design for phones first. Keep the existing hero and gallery compositions, with the updated site typography.
 
 ## Typography
 
-- Display and headings: Oswald in semibold and bold weights.
-- Body, navigation and interface: Manrope in regular through bold weights.
-- Arabic passages: Noto Naskh Arabic.
-- Body copy remains at least 16px with a comfortable line height.
-- Longer text should remain within approximately 65 to 75 characters per line.
+- Headings and expressive text: Lora, with restrained italic accents.
+- Hero headline: Bricolage Grotesque.
+- Body, navigation, labels and controls: Manrope.
+- Body copy uses a comfortable line height and starts at 16px. Supporting captions and labels can be smaller.
+- Use a clear hierarchy. Section titles scale from 32px on phones to 52px on larger screens.
 
-## Layout
+## Colour and shape
 
-- Mobile-first responsive implementation.
-- Maximum content width: 80rem.
-- Page gutters: 20px mobile, 32px tablet, 48px desktop.
-- Use a 4px/8px spacing rhythm.
-- Avoid horizontal overflow at 375px.
+- Preserve the Academy navy, cyan and sky blue brand colours.
+- Use warm ivory for the canvas, white for cards, and soft blue, sage and sand for supporting surfaces.
+- Keep all colours in semantic tokens in `src/app/globals.css`.
+- Main panels use 28px corners. Cards use 16px to 24px corners. Buttons use 12px corners.
+- Borders and shadows stay light. Avoid glass effects, heavy gradients and continuous decorative movement.
 
-## Shape and elevation
+## Layout and content
 
-- Buttons use compact rectangular geometry with a restrained corner radius.
-- Editorial cards use square or subtly rounded corners, fine rules and generous internal spacing.
-- Shadows are rare, restrained and tokenized as `shadow-soft` and `shadow-card`.
-- Prefer typography, photography, borders and contrast over floating card effects.
-- Avoid pill-heavy layouts, glassmorphism, heavy gradients and ornamental clutter.
+- Mobile gutters start at 20px. Content expands to a maximum width of 80rem.
+- Use stacked panels on phones, then two or three columns when space permits.
+- Keep a short heading, one focused paragraph and a small number of useful details per section.
+- Programme details use native expandable disclosures, with full keyboard support and no extra client library.
+- Condense the Director’s message into a quotation panel.
+- Keep a three step admissions journey with a clear next action.
+- Keep the hero imagery, composition and wording. Only adjust typography, fitting and link destinations as needed.
+- Keep the gallery composition, imagery and captions.
 
-## Editorial composition
+## Interaction and performance
 
-- Use oversized serif headlines paired with compact uppercase supporting labels.
-- Alternate solid brand fields, warm neutral space and authentic school photography.
-- Use asymmetry and occasional controlled overlaps to create an institutional editorial feel.
-- Keep navigation focused; secondary destinations belong in the menu panel.
+- Use a choreographed hero entrance, a continuous Academy highlights ticker and staggered section reveals.
+- Give cards, icons, gallery images, buttons and expandable content clear motion feedback.
+- Hover movement is enabled only on devices that support hovering. Press feedback works on touch screens.
+- Respect reduced motion, including when the preference changes during a visit.
+- Server content stays visible when JavaScript is unavailable.
+- Use CSS transforms and opacity for movement. Do not add an animation or carousel library.
+- Keep continuous animation to the highlights ticker, hero artwork and small status details.
+- Provide a visible ticker pause control and pause it during pointer hover.
+- Use Next.js responsive images with deferred loading below the hero.
+- Keep the mobile navigation compact, keyboard accessible and easy to dismiss.
+- Touch controls are at least 44px, with 48px preferred for primary actions.
 
-## Interaction and accessibility
+## Content and navigation
 
-- Interactive targets are at least 44 to 48px high.
-
-## Copy punctuation
-
-- Never use em dashes or en dashes in user facing copy.
-- Use commas, colons, full stops, or the word "to" for ranges.
-- Rewrite optional hyphenated wording where a clear alternative is available.
-- All controls require visible hover, active and keyboard-focus states.
-- Focus is represented by the `focus` semantic colour.
-- Respect `prefers-reduced-motion`.
-- Use SVG icons from one consistent family when icons are introduced.
-- Never use emojis as interface icons.
-- Colour must not be the sole way information is communicated.
-
-## Imagery
-
-- Prefer authentic Nigerian learners, educators and campus scenes.
-- Photography should feel candid, respectful and editorial, not staged.
-- Do not present generated placeholder photography as documentary evidence of the real campus.
-- Replace placeholders with approved Academy photography before launch.
-
-## Brand assets
-
-- Primary mark: approved circular Academy crest.
-- Preserve original proportions and colours.
-- Maintain generous clear space around the crest.
-- Secondary wordmark may be used only when its smaller lettering remains legible.
+- School facts live in `src/lib/site.ts`.
+- Navigation targets existing sections or available pages.
+- Never invent contact details. Enable WhatsApp only when a valid school number is configured.
+- Existing illustrative photographs remain labelled as previews.
+- Never use em dashes or en dashes in user facing copy or documentation.
+- Use commas, colons, full stops or the word "to" for ranges. Avoid optional hyphenated wording.

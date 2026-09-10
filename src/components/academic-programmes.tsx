@@ -1,137 +1,50 @@
-import { MoveRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-
+import { ArrowUpRight, BookOpen, ChevronDown, GraduationCap, School, Sprout } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
-import { siteConfig } from "@/lib/site";
+import { Reveal } from "@/components/ui/reveal";
 
 const pathways = [
-  {
-    number: "01",
-    stage: "Foundation · Nursery 1 to 2",
-    title: "Early Years & Nursery",
-    description:
-      "Guided play and structured early learning develop communication, numeracy, confidence and Islamic manners.",
-    image: siteConfig.media.earlyYears,
-    tone: "image",
-  },
-  {
-    number: "02",
-    stage: "Primary 1 to 6",
-    title: "Primary School",
-    description:
-      "Strong foundations in literacy, mathematics, science, technology and character prepare learners for lasting success.",
-    image: null,
-    tone: "brand",
-  },
-  {
-    number: "03",
-    stage: "JSS 1 to 3 · SSS 1 to 3",
-    title: "Secondary School",
-    description:
-      "Science, Commercial and Arts pathways prepare students for Nigerian examinations, higher education and leadership.",
-    image: siteConfig.media.secondary,
-    tone: "image",
-  },
-  {
-    number: "04",
-    stage: "Islamic Studies · Two year Hifz",
-    title: "Tahfiz & Arrabiyyah",
-    description:
-      "Qur’an memorisation, Tajweed, Arabic and character mentoring develop disciplined and confident young Muslims.",
-    image: null,
-    tone: "sky",
-  },
+  { id: "early-years", icon: Sprout, number: "01", stage: "Early Years · Nursery 1 to 2", title: "A joyful beginning", description: "Play, discovery and gentle guidance help little learners find their confidence.", details: "Early literacy, counting, creative activities and Islamic manners build a happy foundation for school.", color: "bg-sand", label: "Early Years and Nursery" },
+  { id: "primary", icon: BookOpen, number: "02", stage: "Primary 1 to 6", title: "Room to discover", description: "Strong foundations meet big questions, new skills and a growing love of learning.", details: "Literacy, mathematics and science follow the Nigerian national curriculum, with Islamic character woven into each day.", color: "bg-brand-soft", label: "Primary School" },
+  { id: "secondary", icon: GraduationCap, number: "03", stage: "JSS 1 to 3 · SSS 1 to 3", title: "Ready for tomorrow", description: "Purposeful learning prepares young people for their next chapter, and life beyond school.", details: "Science, Commercial and Arts pathways develop knowledge, examination readiness and confidence for higher education.", color: "bg-sage", label: "Secondary School" },
 ] as const;
 
 export function AcademicProgrammes() {
   return (
-    <section
-      id="academic-programmes"
-      aria-labelledby="academic-programmes-title"
-      className="scroll-mt-32 bg-surface-muted py-20 sm:py-24 lg:py-32"
-    >
+    <section id="academic-programmes" aria-labelledby="academic-programmes-title" className="section-space bg-brand text-brand-foreground">
       <Container>
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-16">
-          <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-accent-foreground sm:text-sm">
-              The learning pathway
-            </p>
-            <h2
-              id="academic-programmes-title"
-              className="mt-5 max-w-3xl text-balance text-4xl font-semibold text-foreground sm:text-5xl lg:text-6xl"
-            >
-              One journey, from first discoveries to future leadership.
-            </h2>
-          </div>
-
-          <div className="max-w-xl lg:justify-self-end">
-            <p className="text-base leading-8 text-muted-foreground sm:text-lg">
-              A consistent standard of academic care, Islamic character and
-              personal guidance supports every learner throughout the Academy.
-            </p>
-            <ButtonLink href="/academics" variant="secondary" className="mt-6">
-              Explore the full curriculum
-              <MoveRight aria-hidden="true" className="size-5" />
-            </ButtonLink>
-          </div>
-        </div>
-
-        <div className="mt-12 grid border-l border-t border-border md:grid-cols-2 xl:grid-cols-4">
-          {pathways.map((pathway) => (
-            <article
-              key={pathway.number}
-              className="group flex min-h-full flex-col border-b border-r border-border bg-surface"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                {pathway.image ? (
-                  <Image
-                    src={pathway.image.src}
-                    alt={pathway.image.alt}
-                    fill
-                    sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-[1.025]"
-                  />
-                ) : (
-                  <div
-                    className={`flex h-full items-end justify-between p-7 ${
-                      pathway.tone === "brand"
-                        ? "bg-brand text-brand-foreground"
-                        : "bg-sky text-brand"
-                    }`}
-                  >
-                    <span className="text-xs font-extrabold uppercase tracking-[0.18em] opacity-75">
-                      Inaayatullah
-                    </span>
-                    <span aria-hidden="true" className="font-display text-7xl font-bold leading-none opacity-40">
-                      {pathway.number}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <div className="flex flex-1 flex-col p-7">
-                <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-accent-foreground">
-                  {pathway.stage}
-                </p>
-                <h3 className="mt-4 text-3xl font-semibold text-foreground">
-                  {pathway.title}
-                </h3>
-                <p className="mt-4 flex-1 text-base leading-7 text-muted-foreground">
-                  {pathway.description}
-                </p>
-                <Link
-                  href="/academics"
-                  className="mt-6 inline-flex min-h-12 items-center gap-2 self-start text-xs font-extrabold uppercase tracking-[0.16em] text-brand transition-colors duration-200 hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-focus/35"
-                >
-                  Learn more
-                  <MoveRight aria-hidden="true" className="size-4" />
-                </Link>
-              </div>
-            </article>
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow !text-sky">A pathway for every learner</p>
+          <h2 id="academic-programmes-title" className="section-heading mt-4 !text-brand-foreground">Growing together,<br /><em className="font-normal">every step of the way.</em></h2>
+          <p className="mx-auto mt-5 max-w-lg text-base leading-7 text-brand-foreground/75">From their first school day to their next big ambition, an education that grows with your child.</p>
+        </Reveal>
+        <div className="mt-9 grid items-stretch gap-5 lg:grid-cols-3 lg:gap-6">
+          {pathways.map(({ id, icon: Icon, number, stage, title, description, details, color, label }, index) => (
+            <Reveal key={id} className="h-full" delay={index * 70}>
+              <article className="lift-card flex h-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-surface">
+                <div className={`${color} flex items-center justify-between px-6 py-5 sm:px-7`}>
+                  <span className="card-icon flex size-12 items-center justify-center rounded-2xl bg-surface/75 text-brand"><Icon aria-hidden="true" className="size-6" strokeWidth={1.5} /></span>
+                  <span aria-hidden="true" className="font-display text-4xl text-brand/30">{number}</span>
+                </div>
+                <div className="flex flex-1 flex-col p-6 sm:p-7">
+                  <p className="text-[0.65rem] font-extrabold uppercase leading-5 tracking-[0.1em] text-muted-foreground">{stage}</p>
+                  <h3 className="mt-3 text-[1.65rem] font-medium text-brand">{title}</h3>
+                  <p className="mb-5 mt-3 text-base leading-7 text-muted-foreground">{description}</p>
+                  <details className="group mt-auto border-t border-border/70 pt-2">
+                    <summary className="flex min-h-12 list-none items-center justify-between gap-3 text-sm font-extrabold text-brand [&::-webkit-details-marker]:hidden" aria-label={`Explore ${label}`}>
+                      <span>{label}</span><ChevronDown aria-hidden="true" className="size-4 shrink-0 transition-transform duration-200 group-open:rotate-180" />
+                    </summary>
+                    <div className="disclosure-content pb-1 pt-2"><p className="text-sm leading-7 text-muted-foreground">{details}</p><ButtonLink href="/#admissions" variant="text" className="mt-2">Admission information <ArrowUpRight aria-hidden="true" className="size-4" /></ButtonLink></div>
+                  </details>
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
+        <Reveal className="mt-6 flex flex-col items-start justify-between gap-3 rounded-2xl border border-brand-foreground/15 bg-surface/95 px-6 py-4 sm:flex-row sm:items-center">
+          <div className="flex items-center gap-3"><School aria-hidden="true" className="size-5 shrink-0 text-brand" /><p className="text-sm leading-6 text-muted-foreground"><strong className="text-brand">Faith throughout the journey.</strong> Explore our dedicated Tahfiz and Arabic programmes.</p></div>
+          <ButtonLink href="/#tahfiz" variant="text" className="shrink-0">Discover Tahfiz <ArrowUpRight aria-hidden="true" className="size-4" /></ButtonLink>
+        </Reveal>
       </Container>
     </section>
   );

@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import {
+  Bricolage_Grotesque,
   Manrope,
   Noto_Naskh_Arabic,
-  Oswald,
+  Lora,
 } from "next/font/google";
 
 import { siteConfig } from "@/lib/site";
@@ -16,14 +17,23 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const oswald = Oswald({
+const lora = Lora({
   subsets: ["latin"],
-  variable: "--font-oswald",
+  variable: "--font-lora",
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const bricolageGrotesque = Bricolage_Grotesque({
+  subsets: ["latin"],
+  style: "normal",
+  variable: "--font-bricolage-grotesque",
   display: "swap",
 });
 
 const notoNaskhArabic = Noto_Naskh_Arabic({
   subsets: ["arabic"],
+  preload: false,
   variable: "--font-noto-arabic",
   display: "swap",
 });
@@ -50,9 +60,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${manrope.variable} ${oswald.variable} ${notoNaskhArabic.variable}`}
+        className={`${manrope.variable} ${lora.variable} ${bricolageGrotesque.variable} ${notoNaskhArabic.variable}`}
       >
         <a className="skip-link" href="#main-content">
           Skip to main content

@@ -1,103 +1,45 @@
-import { MoveRight } from "lucide-react";
+import { ArrowUpRight, BookOpen, Heart, Sprout } from "lucide-react";
 import Image from "next/image";
-
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
 import { siteConfig } from "@/lib/site";
 
 const principles = [
-  {
-    number: "01",
-    title: "Faith",
-    description: "The Qur’an and Sunnah guide learning, worship and character.",
-  },
-  {
-    number: "02",
-    title: "Knowledge",
-    description: "Strong academics build curiosity, confidence and sound judgement.",
-  },
-  {
-    number: "03",
-    title: "Service",
-    description: "Learners grow to lead responsibly and benefit wider society.",
-  },
+  { icon: Heart, title: "Faith at the centre", description: "Values that guide a lifetime.", color: "bg-brand-soft text-brand" },
+  { icon: BookOpen, title: "Curiosity in every class", description: "Space to question and discover.", color: "bg-sand text-brand" },
+  { icon: Sprout, title: "Character for life", description: "Confidence, kindness and purpose.", color: "bg-sage text-sage-foreground" },
 ] as const;
 
 export function WhoWeAre() {
   return (
-    <section
-      id="who-we-are"
-      aria-labelledby="who-we-are-title"
-      className="scroll-mt-32 bg-background py-20 sm:py-24 lg:py-32"
-    >
+    <section id="who-we-are" aria-labelledby="who-we-are-title" className="section-space">
       <Container>
-        <div className="grid gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-20 xl:gap-28">
-          <div>
-            <p className="flex items-center gap-4 text-xs font-extrabold uppercase tracking-[0.2em] text-accent-foreground sm:text-sm">
-              <span aria-hidden="true" className="h-px w-10 bg-accent" />
-              Who we are
-            </p>
-            <h2
-              id="who-we-are-title"
-              className="mt-6 max-w-3xl text-balance text-4xl font-semibold text-foreground sm:text-5xl lg:text-6xl"
-            >
-              Developing faith, knowledge and character together.
-            </h2>
-            <div className="mt-7 max-w-2xl space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
-              <p>
-                Inaayatullah International Academy is a private educational
-                institution in Iwo, Osun State, integrating authentic Islamic
-                teachings with high quality contemporary learning.
-              </p>
-              <p>
-                Every child is uniquely created by Allah with immense potential.
-                Our caring environment helps learners discover their abilities,
-                pursue excellence and become confident lifelong learners.
-              </p>
-            </div>
-
-            <div className="mt-10 grid border-l border-t border-border sm:grid-cols-3">
-              {principles.map((item) => (
-                <div key={item.number} className="border-b border-r border-border p-5">
-                  <span className="text-xs font-extrabold tracking-[0.16em] text-accent-foreground">
-                    {item.number}
-                  </span>
-                  <h3 className="mt-4 text-2xl font-semibold text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
+        <Reveal className="grid items-center gap-9 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
+          <div className="text-center lg:order-2 lg:text-left">
+            <p className="eyebrow text-center lg:text-left">Welcome to Inaayatullah</p>
+            <h2 id="who-we-are-title" className="section-heading mx-auto mt-4 lg:mx-0">A beautiful place<br className="hidden sm:block" /> to learn. <em className="font-normal">And belong.</em></h2>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-muted-foreground lg:mx-0">Every child brings something special. Here, Islamic values and contemporary learning come together to nurture curious minds, kind hearts and confident futures.</p>
+            <ul className="mx-auto mt-7 max-w-md space-y-5 lg:mx-0 lg:max-w-none lg:space-y-4">
+              {principles.map(({ icon: Icon, title, description, color }) => (
+                <li key={title} className="flex flex-col items-center gap-2.5 text-center lg:flex-row lg:gap-3.5 lg:text-left">
+                  <span className={`card-icon flex size-11 shrink-0 items-center justify-center rounded-xl ${color}`}><Icon aria-hidden="true" className="size-5" strokeWidth={1.6} /></span>
+                  <div><h3 className="text-sm font-extrabold tracking-normal text-brand">{title}</h3><p className="mt-1 text-sm leading-6 text-muted-foreground">{description}</p></div>
+                </li>
               ))}
-            </div>
-
-            <ButtonLink href="/about" variant="secondary" className="mt-8">
-              Discover the Academy
-              <MoveRight aria-hidden="true" className="size-5" />
-            </ButtonLink>
+            </ul>
+            <ButtonLink href="/student-life" variant="text" className="mt-6">Get to know our school <ArrowUpRight aria-hidden="true" className="size-4" /></ButtonLink>
           </div>
-
-          <div className="relative pb-8 lg:pb-12">
-            <div className="relative aspect-[4/5] overflow-hidden bg-muted">
-              <Image
-                src={siteConfig.media.whoWeAre.src}
-                alt={siteConfig.media.whoWeAre.alt}
-                fill
-                sizes="(min-width: 1024px) 42vw, (min-width: 640px) 72vw, 90vw"
-                className="object-cover"
-              />
-            </div>
-            <blockquote className="relative -mt-20 ml-5 max-w-sm bg-brand p-7 text-brand-foreground shadow-card sm:ml-10 sm:p-8 lg:absolute lg:-bottom-4 lg:-left-12 lg:ml-0 lg:mt-0">
-              <p className="font-display text-2xl font-semibold leading-snug">
-                “Education is the harmonious development of the mind, body and soul.”
-              </p>
-              <footer className="mt-5 text-xs font-extrabold uppercase tracking-[0.16em] text-sky">
-                Our educational philosophy
-              </footer>
-            </blockquote>
-          </div>
-        </div>
+          <figure className="relative min-h-72 overflow-hidden rounded-[1.75rem] bg-muted sm:min-h-96 lg:order-1 lg:min-h-[34rem]">
+            <Image src={siteConfig.media.whoWeAre.src} alt={siteConfig.media.whoWeAre.alt} fill sizes="(min-width: 1024px) 45vw, 90vw" className="object-cover" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent" />
+            <figcaption className="absolute inset-x-0 bottom-0 p-6 text-brand-foreground sm:p-8">
+              <span className="inline-flex rounded-full bg-surface px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-brand">Faith · Knowledge · Character</span>
+              <p className="mt-3 max-w-sm font-display text-2xl leading-snug">Little discoveries.<br />Lifelong possibilities.</p>
+              {siteConfig.media.whoWeAre.isPlaceholder && <p className="mt-3 text-xs text-brand-foreground/80">Illustrative preview</p>}
+            </figcaption>
+          </figure>
+        </Reveal>
       </Container>
     </section>
   );
