@@ -16,7 +16,7 @@ export function SiteFooter() {
               <Image src="/brand/inaayatullah-crest.png" alt="Academy crest" width={56} height={56} className="size-14 shrink-0 rounded-full bg-surface" />
               <span><span className="block font-display text-xl font-medium">Inaayatullah</span><span className="mt-1 block text-[0.55rem] font-bold uppercase tracking-[0.13em] text-brand-foreground/75">International Academy</span></span>
             </Link>
-            <p className="mt-5 font-display text-xl italic text-sky">{siteConfig.motto}.</p>
+            <p className="mt-5 font-display text-xl text-sky">{siteConfig.motto}.</p>
             <p className="mt-3 max-w-xs text-sm leading-7 text-brand-foreground/75">Faith, learning and a caring community.<br />A brighter future begins together.</p>
             {whatsAppHref && <a href={whatsAppHref} target="_blank" rel="noreferrer" className="mt-4 inline-flex min-h-12 items-center gap-2 text-sm font-bold text-sky">Chat with our team <MessageCircle aria-hidden="true" className="size-4" /></a>}
           </div>

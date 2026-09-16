@@ -16,11 +16,11 @@ export function Hero() {
     >
       <div aria-hidden="true" className="hero-editorial-pattern hero-pattern-motion absolute inset-0 -z-10" />
 
-      <Container className="grid min-h-[780px] grid-rows-[auto_1fr] lg:min-h-[calc(100dvh-9rem)] lg:max-h-[900px] lg:grid-cols-[3fr_2fr] lg:grid-rows-1">
-        <div className="relative z-10 flex flex-col items-center justify-center pb-4 pt-16 text-center sm:pt-20 lg:items-start lg:py-20 lg:text-left">
+      <Container className="grid min-h-[780px] min-w-0 grid-rows-[auto_1fr] lg:min-h-[calc(100dvh-9rem)] lg:max-h-[900px] lg:grid-cols-[3fr_2fr] lg:grid-rows-1">
+        <div className="relative z-10 flex min-w-0 flex-col items-center justify-center pb-4 pt-16 text-center sm:pt-20 lg:items-start lg:py-20 lg:text-left">
           <h1
             id="hero-title"
-            className="hero-title-enter max-w-4xl text-balance font-hero text-[clamp(1.7rem,8.5vw,3.45rem)] font-extrabold leading-[0.92] tracking-[-0.045em] text-brand-foreground sm:text-6xl lg:text-6xl xl:text-7xl"
+            className="hero-title-enter w-full max-w-4xl text-balance font-hero text-[2rem] font-extrabold leading-[0.92] tracking-[-0.05em] text-brand-foreground sm:text-5xl lg:text-6xl xl:text-7xl"
           >
             <span className="block whitespace-nowrap">
               Where faith inspires
@@ -29,7 +29,7 @@ export function Hero() {
               excellence.
             </span>
           </h1>
-          <p className="hero-copy-enter mt-7 max-w-2xl text-pretty text-base leading-8 text-brand-foreground/80 sm:text-lg">
+          <p className="hero-copy-enter mt-7 w-full max-w-2xl text-pretty text-base leading-8 text-brand-foreground/80 sm:text-lg">
             Authentic Islamic education and contemporary learning that shape
             principled, knowledgeable and capable leaders.
           </p>
@@ -51,19 +51,25 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="hero-art-enter relative min-h-[390px] sm:min-h-[450px] lg:min-h-0">
+        <div className="hero-art-enter relative min-h-[390px] min-w-0 sm:min-h-[450px] lg:min-h-0">
           <div
             aria-hidden="true"
             className="hero-orbit absolute bottom-10 left-1/2 aspect-square w-[92%] -translate-x-1/2 rounded-full border border-brand-foreground/10 bg-brand-foreground/5 lg:bottom-16 lg:w-[105%]"
           />
-          <Image
-            src={siteConfig.media.hero.src}
-            alt={siteConfig.media.hero.alt}
-            fill
-            priority
-            sizes="(min-width: 1024px) 46vw, 90vw"
-            className="hero-people object-contain object-bottom"
-          />
+          <div className="absolute bottom-10 left-1/2 aspect-square w-[84%] -translate-x-1/2 overflow-hidden rounded-full border-[6px] border-brand-foreground/10 bg-brand-foreground/5 shadow-2xl sm:w-[78%] lg:bottom-16 lg:w-[94%]">
+            <Image
+              src={siteConfig.media.hero.src}
+              alt={siteConfig.media.hero.alt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 38vw, 78vw"
+              className="hero-people object-cover object-center"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-brand/20 via-transparent to-transparent"
+            />
+          </div>
         </div>
       </Container>
     </section>

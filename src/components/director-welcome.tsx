@@ -17,9 +17,9 @@ export function DirectorWelcome() {
             <div>
               <p className="eyebrow">Leadership and purpose</p>
               <h2 id="director-message-title" className="mx-auto mt-3 max-w-4xl text-balance text-3xl font-medium leading-tight text-brand sm:text-4xl lg:mx-0 lg:text-5xl">
-                Welcome message <em className="font-normal">from the Director.</em>
+                Welcome message <span className="font-normal">from the Director.</span>
               </h2>
-              <p className="mt-4 font-display text-base italic leading-7 text-muted-foreground sm:text-lg">
+              <p className="mt-4 font-display text-base leading-7 text-muted-foreground sm:text-lg">
                 {siteConfig.directorMessage.title}
               </p>
             </div>
@@ -53,7 +53,7 @@ export function DirectorWelcome() {
                   {siteConfig.directorMessage.paragraphs.slice(1).map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
-                  <p className="pt-2 font-display text-lg italic text-brand">{siteConfig.directorMessage.closing}</p>
+                  <p className="pt-2 font-display text-lg text-brand">{siteConfig.directorMessage.closing}</p>
                 </div>
               </details>
             </div>

@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Inaayatullah International Academy",
   shortName: "IIA",
+  url: "https://inaayatullah.vercel.app",
   location: "Iwo, Osun State, Nigeria",
   motto: "Producing the best of mankind",
   tagline: "Where faith inspires excellence and knowledge builds the future.",
@@ -106,6 +107,90 @@ export const siteConfig = {
     introduction:
       "Attentive care, clear safeguarding and family partnership help every learner feel secure and thrive.",
   },
+  studentLifeActivities: {
+    eyebrow: "Clubs and sports",
+    title: "Confidence grows beyond the classroom.",
+    introduction:
+      "Weekly activities give learners the freedom to explore ideas, develop practical skills and grow through teamwork.",
+    clubDay: "Every Wednesday",
+    clubsIntroduction:
+      "Club activities encourage confident expression, curiosity, creativity and meaningful participation.",
+    clubs: [
+      "Debate Club",
+      "Science Club",
+      "Entrepreneurship Club",
+      "Press Club",
+    ],
+    sportsTitle: "Move together. Grow together.",
+    sportsDescription:
+      "Football, athletics and house activities build discipline, resilience and healthy competition. A dedicated coach provides table tennis training.",
+    houseDescription:
+      "The Academy’s sports houses create belonging, teamwork and shared pride across school life.",
+  },
+  achievements: {
+    eyebrow: "Achievements and awards",
+    title: "Excellence, recognised and remembered.",
+    introduction:
+      "Learners are encouraged to participate with confidence, apply what they know and represent the Academy with distinction.",
+    displayCaption:
+      "A growing collection of awards reflects the effort of our learners and the guidance of their teachers.",
+    awards: [
+      {
+        year: "2022",
+        organiser: "AMIS Osun State Chapter",
+        title: "First position in Quiz",
+        category: "Academic Competition, JSS category",
+      },
+      {
+        year: "2022",
+        organiser: "AMIS Osun State Chapter",
+        title: "First position in Calligraphy",
+        category: "Academic Competition, JSS category",
+      },
+    ],
+    collectionCaption:
+      "Recognition from academic and community competitions forms part of the Academy’s continuing story.",
+  },
+  campusLife: {
+    eyebrow: "Campus life and facilities",
+    title: "A campus shaped for learning and belonging.",
+    introduction:
+      "Purposeful spaces support study, worship, play, rest and the everyday routines that help learners thrive.",
+    overviewTitle: "A growing campus in Iwo.",
+    overviewDescription:
+      "The Academy continues to develop its environment while providing spaces for academic learning, Qur’an study, recreation and community life.",
+    facilitiesIntroduction:
+      "Learning and care are supported by practical facilities across the Academy.",
+    facilities: [
+      "Classrooms",
+      "ICT facilities",
+      "Tahfiz spaces",
+      "Boarding accommodation",
+      "Play and sports",
+      "Transport and backup power",
+    ],
+    images: {
+      overview: {
+        src: "/images/Innaya/IMG (14).png",
+        alt: "Aerial view of Inaayatullah International Academy and its surrounding campus in Iwo",
+      },
+      ict: {
+        src: "/images/Innaya/IMG (9).png",
+        alt: "Inaayatullah students learning with desktop computers in the Academy ICT room",
+        caption: "ICT supported learning",
+      },
+      tahfiz: {
+        src: "/images/Innaya/DSC_0034.jpg",
+        alt: "Inaayatullah Tahfiz students studying the Qur’an together in their classroom",
+        caption: "Tahfiz and daily Qur’an study",
+      },
+      playground: {
+        src: "/images/Innaya/DSC_0108.jpg",
+        alt: "Inaayatullah learners enjoying the Academy playground equipment together",
+        caption: "Play, friendship and belonging",
+      },
+    },
+  },
   studentCare: {
     introduction:
       "We protect every learner’s wellbeing and work closely with families to support balanced growth.",
@@ -167,25 +252,67 @@ export const siteConfig = {
       "A glimpse of learning, discovery and community across the Academy.",
     items: [
       {
-        title: "Learning through discovery",
-        category: "Classroom learning",
-        src: "/images/classroom-science-placeholder.png",
-        alt: "Illustrative preview of a Nigerian teacher guiding students through a classroom science activity",
-        isPlaceholder: true,
+        title: "Joy in every discovery",
+        category: "Everyday moments",
+        src: "/images/Innaya/DSC_0135.jpg",
+        alt: "Two smiling Inaayatullah pupils enjoying time on the school playground",
+        isPlaceholder: false,
       },
       {
-        title: "A confident beginning",
+        title: "Learning through play",
         category: "Early Years",
-        src: "/images/early-years-classroom-placeholder.png",
-        alt: "Illustrative preview of young Nigerian learners exploring counting blocks with their teacher",
-        isPlaceholder: true,
+        src: "/images/Innaya/DSC_0108.jpg",
+        alt: "Young Inaayatullah pupils enjoying outdoor play on the school swings",
+        isPlaceholder: false,
       },
       {
-        title: "Growing into leadership",
-        category: "Secondary School",
-        src: "/images/hero-students-placeholder.png",
-        alt: "Illustrative preview of Nigerian secondary school students walking together on a school campus",
-        isPlaceholder: true,
+        title: "Rooted in the Qur'an",
+        category: "Tahfiz",
+        src: "/images/Innaya/DSC_0034.jpg",
+        alt: "Inaayatullah pupils studying the Qur'an together in the Tahfiz classroom",
+        isPlaceholder: false,
+      },
+      {
+        title: "Recognition earned together",
+        category: "Achievements",
+        src: "/images/Innaya/DSC_0002.jpg",
+        alt: "A display of awards and certificates earned by Inaayatullah learners",
+        isPlaceholder: false,
+      },
+      {
+        title: "Room to play and grow",
+        category: "Sports and recreation",
+        src: "/images/Innaya/DSC_0125.jpg",
+        alt: "Inaayatullah learners playing football across the Academy field",
+        isPlaceholder: false,
+      },
+      {
+        title: "Focus, skill and friendship",
+        category: "Table tennis",
+        src: "/images/Innaya/DSC_0175.jpg",
+        alt: "Inaayatullah students enjoying table tennis practice together",
+        isPlaceholder: false,
+      },
+      {
+        title: "Pride in every house",
+        category: "Sports houses",
+        src: "/images/Innaya/DSC_0197.jpg",
+        alt: "Inaayatullah students standing together in colourful sports house uniforms",
+        isPlaceholder: false,
+      },
+      {
+        title: "Growing together",
+        category: "Early Years",
+        src: "/images/Innaya/DSC_0111.jpg",
+        alt: "Young Inaayatullah pupils smiling together during the school day",
+        isPlaceholder: false,
+      },
+      {
+        title: "Learning for tomorrow",
+        category: "Digital learning",
+        src: "/images/Innaya/IMG (25).png",
+        alt: "Inaayatullah students developing digital skills during an ICT lesson",
+        isPlaceholder: false,
       },
     ],
   },
@@ -245,33 +372,33 @@ export const siteConfig = {
   },
   navigation: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/#who-we-are" },
+    { label: "Student Life", href: "/student-life" },
     { label: "Academics", href: "/#academic-programmes" },
     { label: "Tahfiz", href: "/#tahfiz" },
-    { label: "Student Life", href: "/student-life" },
+    { label: "About", href: "/about" },
     { label: "Admissions", href: "/#admissions" },
     { label: "Contact", href: "/#contact" },
   ],
   media: {
     hero: {
-      src: "/images/hero-students-cutout-v2.png",
-      alt: "Illustrative portrait of two Nigerian secondary school students in modest Academy colours",
-      isPlaceholder: true,
+      src: "/images/Innaya/DSC_0111.jpg",
+      alt: "A group of young Inaayatullah pupils smiling together on campus",
+      isPlaceholder: false,
     },
     whoWeAre: {
-      src: "/images/classroom-science-placeholder.png",
-      alt: "Illustrative image of a Nigerian teacher guiding students through a classroom science activity",
-      isPlaceholder: true,
+      src: "/images/Innaya/IMG (25).png",
+      alt: "Inaayatullah students developing digital skills during an ICT lesson",
+      isPlaceholder: false,
     },
     earlyYears: {
-      src: "/images/early-years-classroom-placeholder.png",
-      alt: "Illustrative image of young Nigerian learners exploring counting blocks with their teacher",
-      isPlaceholder: true,
+      src: "/images/Innaya/DSC_0108.jpg",
+      alt: "Young Inaayatullah pupils enjoying outdoor play on the school swings",
+      isPlaceholder: false,
     },
     secondary: {
-      src: "/images/hero-students-placeholder.png",
-      alt: "Illustrative image of Nigerian secondary school students walking together on a school campus",
-      isPlaceholder: true,
+      src: "/images/Innaya/DSC_0197.jpg",
+      alt: "Inaayatullah students standing together in their sports house uniforms",
+      isPlaceholder: false,
     },
   },
   contact: {

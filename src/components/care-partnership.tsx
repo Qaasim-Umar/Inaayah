@@ -11,7 +11,7 @@ export function CarePartnership() {
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow !text-sky">Care and family partnership</p>
-          <h2 id="care-partnership-title" className="section-heading mt-4 !text-brand-foreground">Every child matters.<br /><em className="font-normal">Every family belongs.</em></h2>
+          <h2 id="care-partnership-title" className="section-heading mt-4 !text-brand-foreground">Every child matters.<br /><span className="font-normal">Every family belongs.</span></h2>
           <p className="mt-5 text-base leading-7 text-brand-foreground/75">{siteConfig.careAndPartnership.introduction}</p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

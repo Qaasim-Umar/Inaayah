@@ -15,7 +15,7 @@ export function AcademicProgrammes() {
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow !text-sky">A pathway for every learner</p>
-          <h2 id="academic-programmes-title" className="section-heading mt-4 !text-brand-foreground">Growing together,<br /><em className="font-normal">every step of the way.</em></h2>
+          <h2 id="academic-programmes-title" className="section-heading mt-4 !text-brand-foreground">Growing together,<br /><span className="font-normal">every step of the way.</span></h2>
           <p className="mx-auto mt-5 max-w-lg text-base leading-7 text-brand-foreground/75">From their first school day to their next big ambition, an education that grows with your child.</p>
         </Reveal>
         <div className="mt-9 grid items-stretch gap-5 lg:grid-cols-3 lg:gap-6">

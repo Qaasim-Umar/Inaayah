@@ -31,3 +31,18 @@ next-env.d.ts
 
 # Vercel
 .vercel
+
+# Academy photographs not used by the website
+/public/images/Innaya/*
+!/public/images/Innaya/DSC_0002.jpg
+!/public/images/Innaya/DSC_0010.jpg
+!/public/images/Innaya/DSC_0034.jpg
+!/public/images/Innaya/DSC_0108.jpg
+!/public/images/Innaya/DSC_0111.jpg
+!/public/images/Innaya/DSC_0125.jpg
+!/public/images/Innaya/DSC_0135.jpg
+!/public/images/Innaya/DSC_0175.jpg
+!/public/images/Innaya/DSC_0197.jpg
+!/public/images/Innaya/IMG (9).png
+!/public/images/Innaya/IMG (14).png
+!/public/images/Innaya/IMG (25).png

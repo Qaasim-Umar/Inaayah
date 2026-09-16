@@ -11,7 +11,7 @@ export function TahfizSpotlight() {
         <Reveal className="relative isolate overflow-hidden rounded-[1.75rem] bg-brand text-brand-foreground lg:grid lg:grid-cols-[1.2fr_0.8fr]">
           <div className="p-6 py-9 text-left sm:p-10 lg:p-12">
             <p className="eyebrow text-left !text-sky">The heart of our Academy</p>
-            <h2 id="tahfiz-title" className="mx-0 mt-4 max-w-xl text-left text-balance text-3xl font-medium sm:text-4xl lg:text-5xl">Rooted in faith.<br /><em className="font-normal text-sky">Carried through life.</em></h2>
+            <h2 id="tahfiz-title" className="mx-0 mt-4 max-w-xl text-left text-balance text-3xl font-medium sm:text-4xl lg:text-5xl">Rooted in faith.<br /><span className="font-normal text-sky">Carried through life.</span></h2>
             <p className="mx-0 mt-5 max-w-lg text-base leading-7 text-brand-foreground/80">A meaningful connection with the Qur’an, nurtured through careful memorisation, understanding and daily practice.</p>
             <ul className="stagger-list mx-0 mt-6 grid max-w-md gap-3 sm:max-w-none sm:grid-cols-2">
               {["Personal memorisation plans", "Tajweed and daily revision", "Arabic language learning", "Character and leadership"].map((item) => <li key={item} className="flex items-start justify-start gap-2.5 text-left text-sm leading-6"><Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-sky" />{item}</li>)}

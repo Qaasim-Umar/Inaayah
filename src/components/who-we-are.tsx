@@ -18,7 +18,7 @@ export function WhoWeAre() {
         <Reveal className="grid items-center gap-9 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
           <div className="text-center lg:order-2 lg:text-left">
             <p className="eyebrow text-center lg:text-left">Welcome to Inaayatullah</p>
-            <h2 id="who-we-are-title" className="section-heading mx-auto mt-4 lg:mx-0">A beautiful place<br className="hidden sm:block" /> to learn. <em className="font-normal">And belong.</em></h2>
+            <h2 id="who-we-are-title" className="section-heading mx-auto mt-4 lg:mx-0">A beautiful place<br className="hidden sm:block" /> to learn. <span className="font-normal">And belong.</span></h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-muted-foreground lg:mx-0">Every child brings something special. Here, Islamic values and contemporary learning come together to nurture curious minds, kind hearts and confident futures.</p>
             <ul className="mx-auto mt-7 max-w-md space-y-5 lg:mx-0 lg:max-w-none lg:space-y-4">
               {principles.map(({ icon: Icon, title, description, color }) => (
@@ -28,15 +28,15 @@ export function WhoWeAre() {
                 </li>
               ))}
             </ul>
-            <ButtonLink href="/student-life" variant="text" className="mt-6">Get to know our school <ArrowUpRight aria-hidden="true" className="size-4" /></ButtonLink>
+            <ButtonLink href="/about" variant="text" className="mt-6">Get to know our school <ArrowUpRight aria-hidden="true" className="size-4" /></ButtonLink>
           </div>
           <figure className="relative min-h-72 overflow-hidden rounded-[1.75rem] bg-muted sm:min-h-96 lg:order-1 lg:min-h-[34rem]">
-            <Image src={siteConfig.media.whoWeAre.src} alt={siteConfig.media.whoWeAre.alt} fill sizes="(min-width: 1024px) 45vw, 90vw" className="object-cover" />
+            <Image src={siteConfig.media.whoWeAre.src} alt={siteConfig.media.whoWeAre.alt} fill sizes="(min-width: 1024px) 45vw, 90vw" className="object-cover object-center" />
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand/85 via-transparent to-transparent" />
             <figcaption className="absolute inset-x-0 bottom-0 p-6 text-brand-foreground sm:p-8">
-              <span className="inline-flex rounded-full bg-surface px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-brand">Faith · Knowledge · Character</span>
-              <p className="mt-3 max-w-sm font-display text-2xl leading-snug">Little discoveries.<br />Lifelong possibilities.</p>
-              {siteConfig.media.whoWeAre.isPlaceholder && <p className="mt-3 text-xs text-brand-foreground/80">Illustrative preview</p>}
+              <span className="hidden rounded-full bg-surface px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-brand md:inline-flex">Faith · Knowledge · Character</span>
+              <p className="max-w-sm font-display text-xl leading-snug md:mt-3 md:text-2xl">Little discoveries.<br className="hidden md:block" /><span className="hidden md:inline">Lifelong possibilities.</span></p>
+              {siteConfig.media.whoWeAre.isPlaceholder && <p className="mt-2 text-xs text-brand-foreground/80 md:mt-3"><span className="md:hidden">Preview</span><span className="hidden md:inline">Illustrative preview</span></p>}
             </figcaption>
           </figure>
         </Reveal>

@@ -20,7 +20,7 @@ const manrope = Manrope({
 const lora = Lora({
   subsets: ["latin"],
   variable: "--font-lora",
-  style: ["normal", "italic"],
+  style: ["normal"],
   display: "swap",
 });
 
@@ -39,13 +39,59 @@ const notoNaskhArabic = Noto_Naskh_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.shortName}`,
   },
   description:
     "Islamic and contemporary education from Early Years through Secondary School, Tahfiz and Arrabiyyah in Iwo, Osun State.",
+  keywords: [
+    "Islamic school in Iwo",
+    "school in Osun State",
+    "Tahfiz school",
+    "Nursery school",
+    "Primary school",
+    "Secondary school",
+    "Inaayatullah International Academy",
+  ],
+  icons: {
+    icon: [{ url: "/brand/inaayatullah-crest.png", type: "image/png" }],
+    shortcut: "/brand/inaayatullah-crest.png",
+    apple: "/brand/inaayatullah-crest.png",
+  },
+  manifest: "/manifest.webmanifest",
+  openGraph: {
+    type: "website",
+    locale: "en_NG",
+    siteName: siteConfig.name,
+    title: siteConfig.name,
+    description:
+      "Islamic and contemporary education from Early Years through Secondary School, Tahfiz and Arrabiyyah in Iwo, Osun State.",
+    images: [
+      {
+        url: "/images/Innaya/DSC_0111.jpg",
+        alt: "Young Inaayatullah pupils smiling together on campus",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description:
+      "Islamic and contemporary education in Iwo, Osun State.",
+    images: ["/images/Innaya/DSC_0111.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  appleWebApp: {
+    capable: true,
+    title: siteConfig.shortName,
+    statusBarStyle: "default",
+  },
 };
 
 export const viewport: Viewport = {

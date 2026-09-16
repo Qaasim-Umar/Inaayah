@@ -8,6 +8,11 @@ import { cn } from "@/lib/cn";
 import { siteConfig } from "@/lib/site";
 
 export function GalleryPreview({ showViewAll = true }: { showViewAll?: boolean }) {
+  const isFullGallery = !showViewAll;
+  const galleryItems = isFullGallery
+    ? siteConfig.gallery.items
+    : siteConfig.gallery.items.slice(0, 3);
+
   return (
     <section
       id="gallery"
@@ -38,15 +43,24 @@ export function GalleryPreview({ showViewAll = true }: { showViewAll?: boolean }
           </div>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:min-h-[32rem] lg:grid-cols-[1.3fr_0.7fr] lg:grid-rows-2">
-          {siteConfig.gallery.items.map((item, index) => (
+        <div
+          className={cn(
+            "mt-10 grid grid-cols-2 gap-3 sm:gap-4",
+            isFullGallery
+              ? "sm:grid-cols-2 lg:grid-cols-3"
+              : "lg:min-h-[32rem] lg:grid-cols-[1.3fr_0.7fr] lg:grid-rows-2",
+          )}
+        >
+          {galleryItems.map((item, index) => (
             <figure
               key={item.title}
               className={cn(
-                "gallery-tile group relative isolate w-full min-w-0 overflow-hidden bg-muted",
-                index === 0
-                  ? "col-span-2 aspect-[4/3] lg:col-span-1 lg:row-span-2 lg:aspect-auto"
-                  : "aspect-square min-h-52 sm:min-h-0 lg:aspect-auto",
+                "gallery-tile group relative isolate w-full min-w-0 overflow-hidden rounded-lg bg-muted",
+                isFullGallery
+                  ? "aspect-[4/5] sm:aspect-[4/3]"
+                  : index === 0
+                    ? "col-span-2 aspect-[4/3] lg:col-span-1 lg:row-span-2 lg:aspect-auto"
+                    : "aspect-square min-h-52 sm:min-h-0 lg:aspect-auto",
               )}
             >
               <Image
@@ -54,9 +68,11 @@ export function GalleryPreview({ showViewAll = true }: { showViewAll?: boolean }
                 alt={item.alt}
                 fill
                 sizes={
-                  index === 0
-                    ? "(min-width: 1024px) 65vw, 100vw"
-                    : "(min-width: 1024px) 35vw, 50vw"
+                  isFullGallery
+                    ? "(min-width: 1024px) 33vw, 50vw"
+                    : index === 0
+                      ? "(min-width: 1024px) 65vw, 100vw"
+                      : "(min-width: 1024px) 35vw, 50vw"
                 }
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.055]"
               />
@@ -67,20 +83,21 @@ export function GalleryPreview({ showViewAll = true }: { showViewAll?: boolean }
 
               {item.isPlaceholder ? (
                 <span className="absolute right-3 top-3 bg-sky px-3 py-1.5 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-accent-foreground sm:right-4 sm:top-4 sm:text-xs">
-                  Illustrative preview
+                  <span className="md:hidden">Preview</span>
+                  <span className="hidden md:inline">Illustrative preview</span>
                 </span>
               ) : null}
 
               <figcaption className="gallery-caption absolute inset-x-0 bottom-0 p-4 text-center text-brand-foreground sm:p-6 sm:text-left">
-                <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.16em] text-sky sm:text-xs">
+                <p className="hidden text-xs font-extrabold uppercase tracking-[0.16em] text-sky md:block">
                   {item.category}
                 </p>
                 <h3
                   className={cn(
-                    "mt-2 font-semibold",
-                    index === 0
-                      ? "text-2xl sm:text-3xl"
-                      : "text-lg sm:text-2xl",
+                    "font-semibold sm:mt-2",
+                    !isFullGallery && index === 0
+                      ? "text-xl sm:text-3xl"
+                      : "text-base sm:text-2xl",
                   )}
                 >
                   {item.title}

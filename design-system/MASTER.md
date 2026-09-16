@@ -6,7 +6,8 @@ A welcoming school community, expressed through framed compositions, soft colour
 
 ## Typography
 
-- Headings and expressive text: Lora, with restrained italic accents.
+- Headings and expressive text: Bricolage Grotesque.
+- Lora is reserved for selective editorial accents in upright styles only.
 - Hero headline: Bricolage Grotesque.
 - Body, navigation, labels and controls: Manrope.
 - Body copy uses a comfortable line height and starts at 16px. Supporting captions and labels can be smaller.
@@ -30,6 +31,7 @@ A welcoming school community, expressed through framed compositions, soft colour
 - Keep a three step admissions journey with a clear next action.
 - Keep the hero imagery, composition and wording. Only adjust typography, fitting and link destinations as needed.
 - Keep the gallery composition, imagery and captions.
+- Keep image overlays compact on phones. Show one short title and hide secondary copy until larger screens.
 
 ## Interaction and performance
 
@@ -48,8 +50,9 @@ A welcoming school community, expressed through framed compositions, soft colour
 ## Content and navigation
 
 - School facts live in `src/lib/site.ts`.
+- Keep Home visible in both desktop and mobile navigation.
 - Navigation targets existing sections or available pages.
 - Never invent contact details. Enable WhatsApp only when a valid school number is configured.
-- Existing illustrative photographs remain labelled as previews.
+- Use authentic Academy photography across public pages, with specific alternative text that describes each activity.
 - Never use em dashes or en dashes in user facing copy or documentation.
 - Use commas, colons, full stops or the word "to" for ranges. Avoid optional hyphenated wording.

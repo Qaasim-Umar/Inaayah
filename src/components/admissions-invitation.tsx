@@ -34,16 +34,17 @@ export function AdmissionsInvitation() {
               <span aria-hidden="true" className="admissions-pulse size-2 rounded-full bg-success" />
               Admissions now open
             </p>
-            <p className="hidden text-xs font-bold uppercase tracking-[0.12em] text-brand-foreground/60 sm:block">Iwo, Osun State</p>
+            <p className="hidden text-xs font-bold uppercase tracking-[0.12em] text-brand-foreground/60 md:block">Iwo, Osun State</p>
           </div>
 
           <div className="mt-6 grid gap-5 lg:grid-cols-[1.14fr_0.86fr] lg:items-end lg:gap-12">
             <h2 id="admissions-title" className="mx-auto max-w-3xl text-balance text-3xl font-medium leading-tight text-brand-foreground sm:text-4xl lg:mx-0 lg:text-5xl">
-              Their next chapter. <em className="font-normal text-sky">Our shared journey.</em>
+              Their next chapter. <span className="font-normal text-sky">Our shared journey.</span>
             </h2>
             <div className="lg:pb-1">
               <p className="mx-auto max-w-lg text-base leading-7 text-brand-foreground/80 lg:mx-0">
-                Give your child a place to grow in knowledge, faith and confidence. Begin their journey with Inaayatullah International Academy.
+                <span className="md:hidden">Begin your child&apos;s journey with Inaayatullah.</span>
+                <span className="hidden md:inline">Give your child a place to grow in knowledge, faith and confidence. Begin their journey with Inaayatullah International Academy.</span>
               </p>
               <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start">
                 <ButtonLink
@@ -55,14 +56,14 @@ export function AdmissionsInvitation() {
                   {whatsAppHref ? "Start your application" : "Request an admission form"}
                   {whatsAppHref ? <MessageCircle aria-hidden="true" className="size-4" /> : <ArrowUpRight aria-hidden="true" className="size-4" />}
                 </ButtonLink>
-                <ButtonLink href="/#academic-programmes" variant="outline-light" className="w-full sm:w-auto">
+                <ButtonLink href="/#academic-programmes" variant="outline-light" className="hidden w-full md:inline-flex md:w-auto">
                   Explore programmes <ArrowUpRight aria-hidden="true" className="size-4" />
                 </ButtonLink>
               </div>
             </div>
           </div>
 
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-brand-foreground/20 pt-4 text-xs font-bold text-brand-foreground/65 lg:justify-start">
+          <div className="mt-7 hidden flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-brand-foreground/20 pt-4 text-xs font-bold text-brand-foreground/65 md:flex lg:justify-start">
             <span>Early Years</span><span aria-hidden="true" className="size-1 rounded-full bg-sky" />
             <span>Primary School</span><span aria-hidden="true" className="size-1 rounded-full bg-sky" />
             <span>Secondary School</span><span aria-hidden="true" className="size-1 rounded-full bg-sky" />
