@@ -20,7 +20,7 @@ export function Hero() {
         <div className="relative z-10 flex min-w-0 flex-col items-center justify-center pb-4 pt-16 text-center sm:pt-20 lg:items-start lg:py-20 lg:text-left">
           <h1
             id="hero-title"
-            className="hero-title-enter w-full max-w-4xl text-balance font-hero text-[2rem] font-extrabold leading-[0.92] tracking-[-0.05em] text-brand-foreground sm:text-5xl lg:text-6xl xl:text-7xl"
+            className="hero-title-enter w-full max-w-4xl text-balance font-hero text-[clamp(2rem,9.6vw,2.25rem)] font-extrabold leading-[0.92] tracking-[-0.05em] text-brand-foreground sm:text-5xl lg:text-6xl xl:text-7xl"
           >
             <span className="block whitespace-nowrap">
               Where faith inspires
