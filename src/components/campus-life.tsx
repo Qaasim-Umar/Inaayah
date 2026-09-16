@@ -10,7 +10,7 @@ import {
 
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { siteConfig } from "@/lib/site";
+import { getSiteConfig, type Locale } from "@/lib/i18n";
 
 const facilityIcons = [
   BookOpen,
@@ -30,7 +30,9 @@ const facilitySurfaces = [
   "bg-gold/55 text-brand",
 ] as const;
 
-export function CampusLife() {
+export function CampusLife({ locale = "en" }: { locale?: Locale }) {
+  const siteConfig = getSiteConfig(locale);
+  const isArabic = locale === "ar";
   const campus = siteConfig.campusLife;
 
   return (
@@ -74,9 +76,9 @@ export function CampusLife() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[0.84fr_1.16fr] lg:items-stretch">
           <Reveal className="rounded-[1.75rem] border border-border/70 bg-surface p-6 shadow-card sm:p-8">
-            <p className="eyebrow">Everyday essentials</p>
+            <p className="eyebrow">{isArabic ? "أساسيات كل يوم" : "Everyday essentials"}</p>
             <h3 className="mt-4 text-3xl font-semibold text-brand">
-              Spaces for the whole learner.
+              {isArabic ? "مساحات ترعى الطالب بكل جوانبه." : "Spaces for the whole learner."}
             </h3>
             <p className="mt-4 text-base leading-7 text-muted-foreground">
               {campus.facilitiesIntroduction}

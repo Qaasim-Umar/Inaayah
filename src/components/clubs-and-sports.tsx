@@ -9,7 +9,7 @@ import {
 
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { siteConfig } from "@/lib/site";
+import { getSiteConfig, type Locale } from "@/lib/i18n";
 
 const clubIcons = [
   MessagesSquare,
@@ -25,7 +25,9 @@ const clubSurfaces = [
   "bg-sky/55 text-brand",
 ] as const;
 
-export function ClubsAndSports() {
+export function ClubsAndSports({ locale = "en" }: { locale?: Locale }) {
+  const siteConfig = getSiteConfig(locale);
+  const isArabic = locale === "ar";
   const activities = siteConfig.studentLifeActivities;
 
   return (
@@ -55,7 +57,7 @@ export function ClubsAndSports() {
             <figure className="group relative isolate min-h-[30rem] overflow-hidden rounded-[1.75rem] bg-brand shadow-soft sm:min-h-[38rem] lg:h-full">
               <Image
                 src="/images/Innaya/DSC_0197.jpg"
-                alt="Inaayatullah students standing together in colourful sports house uniforms on the school field"
+                alt={isArabic ? "طلاب أكاديمية عناية الله يقفون معًا بملابس الفرق الرياضية في ملعب المدرسة" : "Inaayatullah students standing together in colourful sports house uniforms on the school field"}
                 fill
                 sizes="(min-width: 1024px) 54vw, 100vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
@@ -66,7 +68,7 @@ export function ClubsAndSports() {
               />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 text-brand-foreground sm:p-9">
                 <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-sky">
-                  Sports and house life
+                  {isArabic ? "الرياضة وحياة الفرق" : "Sports and house life"}
                 </p>
                 <h3 className="mt-3 max-w-xl text-3xl font-semibold sm:text-4xl">
                   {activities.sportsTitle}
@@ -92,7 +94,7 @@ export function ClubsAndSports() {
                 </p>
               </div>
               <h3 className="mt-5 text-3xl font-semibold text-brand">
-                Ideas find room to grow.
+                {isArabic ? "مساحة تنمو فيها الأفكار." : "Ideas find room to grow."}
               </h3>
               <p className="mt-3 text-base leading-7 text-muted-foreground">
                 {activities.clubsIntroduction}
@@ -124,7 +126,7 @@ export function ClubsAndSports() {
                 <figure className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
                   <Image
                     src="/images/Innaya/DSC_0175.jpg"
-                    alt="Inaayatullah students receiving table tennis training outdoors"
+                    alt={isArabic ? "طلاب أكاديمية عناية الله يتلقون تدريبًا على تنس الطاولة في الخارج" : "Inaayatullah students receiving table tennis training outdoors"}
                     fill
                     sizes="(min-width: 1024px) 22vw, 50vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
@@ -134,7 +136,7 @@ export function ClubsAndSports() {
                     className="absolute inset-0 bg-gradient-to-t from-brand/90 via-transparent to-transparent"
                   />
                   <figcaption className="absolute inset-x-0 bottom-0 p-4 text-sm font-bold text-brand-foreground sm:p-5 sm:text-base">
-                    Table tennis training
+                    {isArabic ? "تدريب تنس الطاولة" : "Table tennis training"}
                   </figcaption>
                 </figure>
               </Reveal>
@@ -143,7 +145,7 @@ export function ClubsAndSports() {
                 <figure className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
                   <Image
                     src="/images/Innaya/DSC_0125.jpg"
-                    alt="Wide view of students playing on Inaayatullah Academy's green football field"
+                    alt={isArabic ? "طلاب يلعبون في ملعب كرة القدم الأخضر بأكاديمية عناية الله" : "Wide view of students playing on Inaayatullah Academy's green football field"}
                     fill
                     sizes="(min-width: 1024px) 22vw, 50vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
@@ -153,7 +155,7 @@ export function ClubsAndSports() {
                     className="absolute inset-0 bg-gradient-to-t from-brand/90 via-transparent to-transparent"
                   />
                   <figcaption className="absolute inset-x-0 bottom-0 p-4 text-sm font-bold text-brand-foreground sm:p-5 sm:text-base">
-                    Football and field activities
+                    {isArabic ? "كرة القدم والأنشطة الميدانية" : "Football and field activities"}
                   </figcaption>
                 </figure>
               </Reveal>

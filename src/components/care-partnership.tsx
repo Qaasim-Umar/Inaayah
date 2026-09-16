@@ -1,17 +1,19 @@
 import { BookOpenCheck, HandHeart, HeartPulse, House, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { siteConfig } from "@/lib/site";
+import { getSiteConfig, type Locale } from "@/lib/i18n";
 
 const supportIcons = [ShieldCheck, HeartPulse, BookOpenCheck, HandHeart] as const;
 
-export function CarePartnership() {
+export function CarePartnership({ locale = "en" }: { locale?: Locale }) {
+  const siteConfig = getSiteConfig(locale);
+  const isArabic = locale === "ar";
   return (
     <section id="student-welfare" aria-labelledby="care-partnership-title" className="section-space bg-brand text-brand-foreground">
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow !text-sky">Care and family partnership</p>
-          <h2 id="care-partnership-title" className="section-heading mt-4 !text-brand-foreground">Every child matters.<br /><span className="font-normal">Every family belongs.</span></h2>
+          <p className="eyebrow !text-sky">{isArabic ? "الرعاية والشراكة مع الأسرة" : "Care and family partnership"}</p>
+          <h2 id="care-partnership-title" className="section-heading mt-4 !text-brand-foreground">{isArabic ? <>كل طفل مهم.<br /><span className="font-normal">وكل أسرة تنتمي.</span></> : <>Every child matters.<br /><span className="font-normal">Every family belongs.</span></>}</h2>
           <p className="mt-5 text-base leading-7 text-brand-foreground/75">{siteConfig.careAndPartnership.introduction}</p>
         </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -23,13 +25,13 @@ export function CarePartnership() {
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           <Reveal className="rounded-3xl border border-brand-foreground/15 bg-brand-foreground/5 p-6 text-brand-foreground sm:p-9">
             <House aria-hidden="true" className="size-7 text-sky" strokeWidth={1.5} />
-            <p className="mt-5 text-xs font-extrabold uppercase tracking-[0.12em] text-sky">Boarding at the Academy</p>
+            <p className="mt-5 text-xs font-extrabold uppercase tracking-[0.12em] text-sky">{isArabic ? "السكن في الأكاديمية" : "Boarding at the Academy"}</p>
             <h3 className="mt-3 text-3xl font-medium">{siteConfig.studentCare.boarding.title}</h3>
             <p className="mt-4 text-base leading-7 text-brand-foreground/80">{siteConfig.studentCare.boarding.description}</p>
             <p className="mt-6 rounded-xl border border-brand-foreground/15 bg-brand-foreground/5 p-4 text-sm leading-6 text-brand-foreground/80"><strong className="text-sky">{siteConfig.studentCare.boarding.developmentTitle}: </strong>{siteConfig.studentCare.boarding.developmentStatus}</p>
           </Reveal>
           <Reveal className="rounded-3xl border border-border/60 bg-sand/60 p-6 sm:p-9">
-            <div id="parents"><HandHeart aria-hidden="true" className="size-7 text-brand" strokeWidth={1.5} /><p className="eyebrow mt-5">Parents as our partners</p><h3 className="mt-3 text-3xl font-medium text-brand">Building success together.</h3><p className="mt-4 text-base leading-7 text-muted-foreground">{siteConfig.parentPartnership.introduction}</p>
+            <div id="parents"><HandHeart aria-hidden="true" className="size-7 text-brand" strokeWidth={1.5} /><p className="eyebrow mt-5">{isArabic ? "أولياء الأمور شركاؤنا" : "Parents as our partners"}</p><h3 className="mt-3 text-3xl font-medium text-brand">{isArabic ? "نبني النجاح معًا." : "Building success together."}</h3><p className="mt-4 text-base leading-7 text-muted-foreground">{siteConfig.parentPartnership.introduction}</p>
               <ul className="mt-5 space-y-3">{siteConfig.parentPartnership.engagement.map(item => <li key={item.title} className="flex items-center gap-3 text-sm font-bold text-brand"><span aria-hidden="true" className="size-1.5 rounded-full bg-brand" />{item.title}</li>)}</ul>
             </div>
           </Reveal>

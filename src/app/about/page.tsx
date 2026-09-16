@@ -19,7 +19,7 @@ import { SiteHeader } from "@/components/site-header";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { siteConfig } from "@/lib/site";
+import { getSiteConfig, localizeHref, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "About the Academy",
@@ -27,14 +27,22 @@ export const metadata: Metadata = {
     "Discover the vision, values, educational philosophy and leadership of Inaayatullah International Academy.",
 };
 
-const academyFacts = [
-  { title: "A complete learning journey", detail: "Early Years to Secondary" },
-  { title: "Rooted in the Qur’an", detail: "Faith, character and knowledge" },
-  { title: "Nationally relevant learning", detail: siteConfig.curriculum },
-  { title: "A caring community", detail: "Day and boarding education" },
-] as const;
+const academyFacts = {
+  en: [
+    { title: "A complete learning journey", detail: "Early Years to Secondary" },
+    { title: "Rooted in the Qur’an", detail: "Faith, character and knowledge" },
+    { title: "Nationally relevant learning", detail: "Nigerian national curriculum" },
+    { title: "A caring community", detail: "Day and boarding education" },
+  ],
+  ar: [
+    { title: "رحلة تعليمية متكاملة", detail: "من السنوات المبكرة إلى الثانوية" },
+    { title: "راسخون في القرآن", detail: "إيمان وأخلاق ومعرفة" },
+    { title: "تعليم يواكب متطلبات الوطن", detail: "المنهج الوطني النيجيري" },
+    { title: "مجتمع تحيطه الرعاية", detail: "تعليم نهاري وسكن داخلي" },
+  ],
+} as const;
 
-const coreValues = [
+const coreValuesEn = [
   {
     icon: MoonStar,
     title: "Faith",
@@ -93,41 +101,51 @@ const coreValues = [
   },
 ] as const;
 
-const philosophyPillars = [
-  "Academic Excellence",
-  "Islamic Morality",
-  "Leadership Development",
-  "Innovation and Creativity",
-  "Service to Humanity",
+const coreValuesAr = [
+  { icon: MoonStar, title: "الإيمان", description: "نرعى صلة قوية بالله من خلال القرآن والسنة.", style: "border-sky/80 bg-gradient-to-br from-brand-soft via-surface to-surface", iconStyle: "bg-sky/50 text-brand" },
+  { icon: Award, title: "التميز", description: "نسعى إلى أعلى المعايير في العلم والأخلاق والخدمة.", style: "border-gold/80 bg-gradient-to-br from-sand via-surface to-surface", iconStyle: "bg-sand text-brand" },
+  { icon: ShieldCheck, title: "النزاهة", description: "الصدق والأمانة والمساءلة توجه كل جانب من جوانب الحياة المدرسية.", style: "border-sage-foreground/35 bg-gradient-to-br from-sage via-surface to-surface", iconStyle: "bg-sage text-sage-foreground" },
+  { icon: BookOpen, title: "المعرفة", description: "التعلم رحلة مدى الحياة تمكّننا من نفع الإنسانية.", style: "border-brand/25 bg-gradient-to-br from-brand/10 via-surface to-surface", iconStyle: "bg-brand/10 text-brand" },
+  { icon: UsersRound, title: "الاحترام", description: "نقدّر كل إنسان مهما كانت خلفيته أو ثقافته أو قدراته.", style: "border-sky/80 bg-gradient-to-br from-brand-soft via-surface to-surface", iconStyle: "bg-sky/50 text-brand" },
+  { icon: HandHeart, title: "المسؤولية", description: "ينمو طلابنا ليصبحوا مواطنين مسؤولين يعتنون بالناس والبيئة.", style: "border-gold/80 bg-gradient-to-br from-sand via-surface to-surface", iconStyle: "bg-sand text-brand" },
+  { icon: Lightbulb, title: "الابتكار", description: "نشجع الفضول والإبداع والحلول المدروسة للمشكلات الواقعية.", style: "border-sage-foreground/35 bg-gradient-to-br from-sage via-surface to-surface", iconStyle: "bg-sage text-sage-foreground" },
+  { icon: Compass, title: "القيادة", description: "نلهم كل طالب ليكون مؤثرًا إيجابيًا وقائدًا يخدم الآخرين.", style: "border-brand/25 bg-gradient-to-br from-brand/10 via-surface to-surface", iconStyle: "bg-brand/10 text-brand" },
 ] as const;
 
-export default function AboutPage() {
+const philosophyPillars = {
+  en: ["Academic Excellence", "Islamic Morality", "Leadership Development", "Innovation and Creativity", "Service to Humanity"],
+  ar: ["التميز الأكاديمي", "الأخلاق الإسلامية", "تنمية القيادة", "الابتكار والإبداع", "خدمة الإنسانية"],
+} as const;
+
+export function AboutPageContent({ locale = "en" }: { locale?: Locale }) {
+  const siteConfig = getSiteConfig(locale);
+  const isArabic = locale === "ar";
+  const coreValues = isArabic ? coreValuesAr : coreValuesEn;
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main id="main-content">
         <header className="section-space">
           <Container className="text-center">
             <Reveal>
-              <p className="eyebrow">About Inaayatullah</p>
+              <p className="eyebrow">{isArabic ? "عن عناية الله" : "About Inaayatullah"}</p>
               <h1 className="mx-auto mt-5 max-w-3xl text-balance text-4xl font-medium text-brand sm:text-5xl lg:text-6xl">
-                Education with purpose.<br />
-                <span className="font-normal">Character for life.</span>
+                {isArabic ? <>تعليم له غاية.<br /><span className="font-normal">وأخلاق تدوم مدى الحياة.</span></> : <>Education with purpose.<br /><span className="font-normal">Character for life.</span></>}
               </h1>
               <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-muted-foreground">
-                Inaayatullah International Academy brings authentic Islamic teaching and high quality contemporary learning together in one caring educational community.
+                {isArabic ? "تجمع أكاديمية عناية الله الدولية بين التعليم الإسلامي الأصيل والتعلم المعاصر عالي الجودة داخل مجتمع تربوي تحيطه الرعاية." : "Inaayatullah International Academy brings authentic Islamic teaching and high quality contemporary learning together in one caring educational community."}
               </p>
               <ButtonLink href="#our-story" variant="text" className="mt-4">
-                Discover our story <ArrowDown aria-hidden="true" className="size-4" />
+                {isArabic ? "اكتشف قصتنا" : "Discover our story"} <ArrowDown aria-hidden="true" className="size-4" />
               </ButtonLink>
             </Reveal>
           </Container>
         </header>
 
         <section aria-labelledby="academy-facts-title" className="bg-brand text-brand-foreground">
-          <h2 id="academy-facts-title" className="sr-only">The Academy at a glance</h2>
+          <h2 id="academy-facts-title" className="sr-only">{isArabic ? "الأكاديمية في لمحة" : "The Academy at a glance"}</h2>
           <Container className="grid divide-y divide-brand-foreground/15 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
-            {academyFacts.map((fact, index) => (
+            {academyFacts[locale].map((fact, index) => (
               <div key={fact.title} className="px-2 py-7 text-center sm:px-6 sm:py-9 lg:text-left">
                 <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.16em] text-sky">0{index + 1}</p>
                 <h3 className="mt-3 text-lg font-semibold text-brand-foreground">{fact.title}</h3>
@@ -150,57 +168,57 @@ export default function AboutPage() {
                 />
                 <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/10 to-transparent" />
                 <figcaption className="absolute inset-x-0 bottom-0 p-6 text-brand-foreground sm:p-8">
-                  <p className="max-w-sm text-balance font-heading text-2xl font-semibold leading-snug sm:text-3xl">Every child carries immense potential.</p>
-                  {siteConfig.media.whoWeAre.isPlaceholder ? <p className="mt-3 text-xs text-brand-foreground/75"><span className="md:hidden">Preview</span><span className="hidden md:inline">Illustrative preview</span></p> : null}
+                  <p className="max-w-sm text-balance font-heading text-2xl font-semibold leading-snug sm:text-3xl">{isArabic ? "يحمل كل طفل إمكانات عظيمة." : "Every child carries immense potential."}</p>
+                  {siteConfig.media.whoWeAre.isPlaceholder ? <p className="mt-3 text-xs text-brand-foreground/75">{isArabic ? "صورة توضيحية" : <><span className="md:hidden">Preview</span><span className="hidden md:inline">Illustrative preview</span></>}</p> : null}
                 </figcaption>
               </figure>
 
               <div className="text-center lg:text-left">
-                <p className="eyebrow text-center lg:text-left">Who we are</p>
+                <p className="eyebrow text-center lg:text-left">{isArabic ? "من نحن" : "Who we are"}</p>
                 <h2 id="our-story-title" className="section-heading mx-auto mt-4 max-w-3xl lg:mx-0">
-                  A balanced education. <span className="font-normal">A confident future.</span>
+                  {isArabic ? <>تعليم متوازن. <span className="font-normal">ومستقبل واثق.</span></> : <>A balanced education. <span className="font-normal">A confident future.</span></>}
                 </h2>
                 <div className="mx-auto mt-6 max-w-2xl space-y-5 text-base leading-8 text-muted-foreground lg:mx-0">
-                  <p>
-                    Inaayatullah International Academy is a private educational institution in Iwo, Osun State, dedicated to providing an outstanding education that integrates authentic Islamic teachings with high quality contemporary learning.
-                  </p>
-                  <p>
-                    The Academy was founded to nurture morally upright, academically accomplished and socially responsible future leaders. Every learner is respected as an individual created by Allah with distinct abilities and immense potential.
-                  </p>
-                  <p>
-                    Our educational pathway spans Early Years, Nursery, Primary, Secondary, Tahfizul Qur’an and Arrabiyyah, giving families a complete journey shaped by knowledge, discipline, compassion and a strong Islamic identity.
-                  </p>
+                  {isArabic ? <>
+                    <p>أكاديمية عناية الله الدولية مؤسسة تعليمية خاصة في إيوو بولاية أوسون، تلتزم بتقديم تعليم متميز يدمج التعاليم الإسلامية الأصيلة بالتعلم المعاصر عالي الجودة.</p>
+                    <p>أُسست الأكاديمية لإعداد قادة للمستقبل يتحلون بالأخلاق والتفوق الأكاديمي والمسؤولية الاجتماعية. ونحترم كل طالب بوصفه إنسانًا خلقه الله بقدرات مميزة وإمكانات عظيمة.</p>
+                    <p>يمتد مسارنا التعليمي من السنوات المبكرة والروضة إلى الابتدائي والثانوي، ويشمل تحفيظ القرآن والعربية، ليمنح الأسر رحلة متكاملة تصوغها المعرفة والانضباط والرحمة والهوية الإسلامية الراسخة.</p>
+                  </> : <>
+                    <p>Inaayatullah International Academy is a private educational institution in Iwo, Osun State, dedicated to providing an outstanding education that integrates authentic Islamic teachings with high quality contemporary learning.</p>
+                    <p>The Academy was founded to nurture morally upright, academically accomplished and socially responsible future leaders. Every learner is respected as an individual created by Allah with distinct abilities and immense potential.</p>
+                    <p>Our educational pathway spans Early Years, Nursery, Primary, Secondary, Tahfizul Qur’an and Arrabiyyah, giving families a complete journey shaped by knowledge, discipline, compassion and a strong Islamic identity.</p>
+                  </>}
                 </div>
               </div>
             </Reveal>
           </Container>
         </section>
 
-        <DirectorWelcome />
+        <DirectorWelcome locale={locale} />
 
         <section aria-labelledby="vision-title" className="section-space bg-brand text-brand-foreground">
           <Container>
             <Reveal className="text-center">
-              <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-sky">Our direction</p>
+              <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-sky">{isArabic ? "وجهتنا" : "Our direction"}</p>
               <h2 id="vision-title" className="mx-auto mt-4 max-w-3xl text-balance text-4xl font-semibold text-brand-foreground sm:text-5xl lg:text-6xl">
-                Clear in vision. <span className="font-normal text-sky">Steadfast in purpose.</span>
+                {isArabic ? <>رؤية واضحة. <span className="font-normal text-sky">ورسالة راسخة.</span></> : <>Clear in vision. <span className="font-normal text-sky">Steadfast in purpose.</span></>}
               </h2>
             </Reveal>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-2">
               <Reveal>
                 <article className="h-full rounded-[1.75rem] bg-brand-foreground p-7 text-brand sm:p-9">
-                  <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-accent-foreground">Our vision</p>
+                  <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-accent-foreground">{isArabic ? "رؤيتنا" : "Our vision"}</p>
                   <p className="mt-5 text-lg leading-8 text-brand sm:text-xl sm:leading-9">
-                    To become a leading international centre of excellence in Islamic and contemporary education, recognised for nurturing morally upright, academically accomplished, innovative and globally competitive leaders who positively impact society.
+                    {isArabic ? "أن نصبح مركزًا دوليًا رائدًا للتميز في التعليم الإسلامي والمعاصر، معروفًا بإعداد قادة مستقيمين أخلاقيًا، ومتفوقين أكاديميًا، ومبتكرين، وقادرين على المنافسة عالميًا والتأثير الإيجابي في المجتمع." : "To become a leading international centre of excellence in Islamic and contemporary education, recognised for nurturing morally upright, academically accomplished, innovative and globally competitive leaders who positively impact society."}
                   </p>
                 </article>
               </Reveal>
               <Reveal delay={80}>
                 <article className="h-full rounded-[1.75rem] border border-brand-foreground/20 bg-brand-foreground/5 p-7 sm:p-9">
-                  <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-sky">Our mission</p>
+                  <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-sky">{isArabic ? "رسالتنا" : "Our mission"}</p>
                   <p className="mt-5 text-lg leading-8 text-brand-foreground/85 sm:text-xl sm:leading-9">
-                    To provide an inspiring educational environment where learners receive a balanced education rooted in the Qur’an and Sunnah while acquiring the knowledge, skills, creativity and confidence required to excel in an ever changing world.
+                    {isArabic ? "توفير بيئة تعليمية ملهمة يتلقى فيها الطلاب تعليمًا متوازنًا راسخًا في القرآن والسنة، ويكتسبون المعرفة والمهارات والإبداع والثقة اللازمة للتميز في عالم دائم التغير." : "To provide an inspiring educational environment where learners receive a balanced education rooted in the Qur’an and Sunnah while acquiring the knowledge, skills, creativity and confidence required to excel in an ever changing world."}
                   </p>
                 </article>
               </Reveal>
@@ -211,12 +229,12 @@ export default function AboutPage() {
         <section aria-labelledby="values-title" className="section-space bg-background">
           <Container>
             <Reveal className="text-center">
-              <p className="eyebrow">What guides us</p>
+              <p className="eyebrow">{isArabic ? "ما يوجهنا" : "What guides us"}</p>
               <h2 id="values-title" className="section-heading mx-auto mt-4 max-w-3xl">
-                Values we teach. <span className="font-normal">Values we live.</span>
+                {isArabic ? <>قيم نعلّمها. <span className="font-normal">وقيم نعيشها.</span></> : <>Values we teach. <span className="font-normal">Values we live.</span></>}
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
-                These principles shape how we learn, lead, care for one another and contribute to society.
+                {isArabic ? "تصوغ هذه المبادئ طريقة تعلمنا وقيادتنا ورعايتنا لبعضنا وإسهامنا في المجتمع." : "These principles shape how we learn, lead, care for one another and contribute to society."}
               </p>
             </Reveal>
 
@@ -240,18 +258,18 @@ export default function AboutPage() {
           <Container>
             <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start lg:gap-16">
               <Reveal className="text-center lg:sticky lg:top-36 lg:text-left">
-                <p className="eyebrow text-center lg:text-left">Our educational philosophy</p>
+                <p className="eyebrow text-center lg:text-left">{isArabic ? "فلسفتنا التعليمية" : "Our educational philosophy"}</p>
                 <h2 id="philosophy-title" className="section-heading mx-auto mt-4 max-w-2xl lg:mx-0">
-                  Developing the mind, body <span className="font-normal">and soul.</span>
+                  {isArabic ? <>تنمية العقل والجسد <span className="font-normal">والروح.</span></> : <>Developing the mind, body <span className="font-normal">and soul.</span></>}
                 </h2>
                 <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-muted-foreground lg:mx-0">
-                  Five connected pillars guide every aspect of learning and school life at Inaayatullah.
+                  {isArabic ? "خمسة أركان مترابطة توجه كل جانب من جوانب التعلم والحياة المدرسية في عناية الله." : "Five connected pillars guide every aspect of learning and school life at Inaayatullah."}
                 </p>
               </Reveal>
 
               <ol className="grid gap-4 sm:grid-cols-2">
-                {philosophyPillars.map((pillar, index) => (
-                  <Reveal key={pillar} delay={(index % 2) * 70} className={index === philosophyPillars.length - 1 ? "sm:col-span-2" : undefined}>
+                {philosophyPillars[locale].map((pillar, index) => (
+                  <Reveal key={pillar} delay={(index % 2) * 70} className={index === philosophyPillars[locale].length - 1 ? "sm:col-span-2" : undefined}>
                     <li className="flex h-full items-center gap-5 rounded-2xl border border-border/70 bg-surface p-6 shadow-card">
                       <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-extrabold text-brand-foreground">0{index + 1}</span>
                       <h3 className="text-xl font-semibold text-brand">{pillar}</h3>
@@ -275,23 +293,23 @@ export default function AboutPage() {
                     <span className="flex size-11 items-center justify-center rounded-xl bg-sky text-accent-foreground">
                       <Compass aria-hidden="true" className="size-5" strokeWidth={1.7} />
                     </span>
-                    <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-sky">Begin the journey</p>
+                    <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-sky">{isArabic ? "ابدأ الرحلة" : "Begin the journey"}</p>
                   </div>
                   <h2 id="about-cta-title" className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-semibold text-brand-foreground sm:text-4xl lg:mx-0 lg:text-5xl">
-                    A purposeful education begins with a conversation.
+                    {isArabic ? "التعليم الهادف يبدأ بحوار." : "A purposeful education begins with a conversation."}
                   </h2>
                   <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-brand-foreground/70 lg:mx-0">
-                    Speak with the Academy and discover the learning pathway that is right for your child.
+                    {isArabic ? "تحدث مع الأكاديمية واكتشف المسار التعليمي الأنسب لطفلك." : "Speak with the Academy and discover the learning pathway that is right for your child."}
                   </p>
                 </div>
 
                 <div className="flex items-center border-t border-brand-foreground/15 bg-brand-foreground/[0.06] p-7 sm:p-10 lg:border-l lg:border-t-0">
                   <div className="w-full text-center lg:text-left">
                     <p className="text-sm font-semibold leading-7 text-brand-foreground/70">
-                      Early Years, Nursery, Primary, Secondary, Tahfiz and Arrabiyyah.
+                      {isArabic ? "السنوات المبكرة، الروضة، الابتدائي، الثانوي، التحفيظ والعربية." : "Early Years, Nursery, Primary, Secondary, Tahfiz and Arrabiyyah."}
                     </p>
-                    <ButtonLink href="/#admissions" variant="accent" className="mt-6 w-full">
-                      Explore admissions <ArrowUpRight aria-hidden="true" className="size-4" />
+                    <ButtonLink href={localizeHref("/#admissions", locale)} variant="accent" className="mt-6 w-full">
+                      {isArabic ? "استكشف القبول" : "Explore admissions"} <ArrowUpRight aria-hidden="true" className="rtl-flip size-4" />
                     </ButtonLink>
                   </div>
                 </div>
@@ -300,7 +318,11 @@ export default function AboutPage() {
           </Container>
         </section>
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   );
+}
+
+export default function AboutPage() {
+  return <AboutPageContent />;
 }

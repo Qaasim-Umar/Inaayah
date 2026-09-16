@@ -169,6 +169,10 @@ details[open] .disclosure-content { animation: disclosure-open 360ms cubic-bezie
   gap: 2rem;
   padding: 1.05rem 1.5rem;
 }
+.academy-ticker-group[dir="rtl"] {
+  min-width: 100vw;
+  justify-content: space-around;
+}
 .academy-ticker-item {
   display: flex;
   flex-shrink: 0;
@@ -216,7 +220,10 @@ details[open] .disclosure-content { animation: disclosure-open 360ms cubic-bezie
 .hero-art-enter { animation: hero-art-arrive 900ms 180ms cubic-bezier(0.16, 1, 0.3, 1) both; }
 .hero-pattern-motion { animation: pattern-drift 18s ease-in-out infinite alternate; }
 .hero-orbit { animation: orbit-breathe 4.8s 900ms ease-in-out infinite; }
-.hero-people { animation: hero-float 5.8s 1100ms ease-in-out infinite; }
+.hero-people {
+  transform-origin: center;
+  animation: hero-image-breathe 5.8s 1100ms ease-in-out infinite;
+}
 .admissions-pulse { animation: admissions-pulse 1.8s ease-out infinite; }
 .admissions-primary-cta { animation: admissions-cta-glow 2.8s ease-in-out infinite; }
 .home-intro {
@@ -403,9 +410,9 @@ details[open] .disclosure-content { animation: disclosure-open 360ms cubic-bezie
   from { opacity: 0; transform: translateY(56px) scale(0.94); }
   to { opacity: 1; transform: none; }
 }
-@keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+@keyframes hero-image-breathe {
+  0%, 100% { transform: scale(1.025); }
+  50% { transform: scale(1.06); }
 }
 @keyframes orbit-breathe {
   0%, 100% { transform: scale(0.96); opacity: 0.6; }
@@ -528,8 +535,58 @@ details[open] .disclosure-content { animation: disclosure-open 360ms cubic-bezie
   transform: translateY(0);
 }
 
+.skip-link__ar {
+  display: none;
+}
+
+body:has(.locale-ar) .skip-link__en {
+  display: none;
+}
+
+body:has(.locale-ar) .skip-link__ar {
+  display: inline;
+}
+
+body:has(.locale-ar) .skip-link {
+  right: 1rem;
+  left: auto;
+}
+
 .font-arabic {
   font-family: var(--font-noto-arabic), serif;
+}
+
+.locale-ar,
+.locale-ar :where(h1, h2, h3, h4, h5, h6, .font-display, .font-heading, .font-hero) {
+  font-family: var(--font-noto-arabic), serif;
+}
+
+.locale-ar :where(.eyebrow, [class*="tracking-"]) {
+  letter-spacing: normal;
+}
+
+.locale-ar .rtl-flip {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 40rem) {
+  .locale-ar .sm\:text-left {
+    text-align: right;
+  }
+}
+
+@media (min-width: 64rem) {
+  .locale-ar .lg\:text-left {
+    text-align: right;
+  }
+
+  .locale-ar .lg\:justify-start {
+    justify-content: flex-end;
+  }
+
+  .locale-ar .lg\:mx-0 {
+    margin-inline: 0;
+  }
 }
 
 .eyebrow {

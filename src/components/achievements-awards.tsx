@@ -3,11 +3,13 @@ import { Award, PenTool, Trophy } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { siteConfig } from "@/lib/site";
+import { getSiteConfig, type Locale } from "@/lib/i18n";
 
 const awardIcons = [Trophy, PenTool] as const;
 
-export function AchievementsAwards() {
+export function AchievementsAwards({ locale = "en" }: { locale?: Locale }) {
+  const siteConfig = getSiteConfig(locale);
+  const isArabic = locale === "ar";
   const achievements = siteConfig.achievements;
 
   return (
@@ -33,7 +35,7 @@ export function AchievementsAwards() {
               <div className="relative aspect-[4/3] overflow-hidden bg-muted sm:aspect-[7/5]">
                 <Image
                   src="/images/Innaya/DSC_0010.jpg"
-                  alt="Display of trophies, plaques and certificates awarded to Inaayatullah International Academy"
+                  alt={isArabic ? "عرض للكؤوس والدروع والشهادات التي حصلت عليها أكاديمية عناية الله الدولية" : "Display of trophies, plaques and certificates awarded to Inaayatullah International Academy"}
                   fill
                   sizes="(min-width: 1024px) 56vw, 100vw"
                   className="object-cover transition-transform duration-500 hover:scale-[1.02]"
@@ -46,7 +48,7 @@ export function AchievementsAwards() {
                   </span>
                   <div>
                     <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-sky">
-                      The Academy awards display
+                      {isArabic ? "معرض جوائز الأكاديمية" : "The Academy awards display"}
                     </p>
                     <p className="mt-3 max-w-xl text-base leading-7 text-brand-foreground/80">
                       {achievements.displayCaption}
@@ -116,7 +118,7 @@ export function AchievementsAwards() {
               <figure className="group relative aspect-[16/9] overflow-hidden rounded-3xl bg-muted">
                 <Image
                   src="/images/Innaya/DSC_0002.jpg"
-                  alt="Closer view of the Academy award shelf showing academic competition certificates"
+                  alt={isArabic ? "صورة قريبة لرف جوائز الأكاديمية وشهادات المسابقات الأكاديمية" : "Closer view of the Academy award shelf showing academic competition certificates"}
                   fill
                   sizes="(min-width: 1024px) 44vw, 100vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.035]"
@@ -126,7 +128,7 @@ export function AchievementsAwards() {
                   className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/10 to-transparent"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 p-5 text-sm font-bold leading-6 text-brand-foreground sm:p-6 sm:text-base">
-                  <span className="md:hidden">Recognition across school competitions.</span>
+                  <span className="md:hidden">{isArabic ? "تكريم في مختلف المسابقات المدرسية." : "Recognition across school competitions."}</span>
                   <span className="hidden md:inline">{achievements.collectionCaption}</span>
                 </figcaption>
               </figure>

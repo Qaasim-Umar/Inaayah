@@ -250,9 +250,42 @@ export const siteConfig = {
   gallery: {
     introduction:
       "A glimpse of learning, discovery and community across the Academy.",
+    sections: [
+      {
+        id: "learningFaith",
+        title: "Learning and Faith",
+        description:
+          "Lessons, worship and discovery come together throughout the school day.",
+      },
+      {
+        id: "sports",
+        title: "Sports and Activities",
+        description:
+          "Movement, teamwork and joyful competition help every learner grow in confidence.",
+      },
+      {
+        id: "campus",
+        title: "Campus and Facilities",
+        description:
+          "Purposeful spaces support safe learning, recreation and the continued growth of our Academy.",
+      },
+      {
+        id: "community",
+        title: "Boarding and Community",
+        description:
+          "Care, friendship and a strong sense of belonging shape life beyond the classroom.",
+      },
+      {
+        id: "achievements",
+        title: "Awards and Achievements",
+        description:
+          "We celebrate the effort, character and accomplishments of our learners.",
+      },
+    ],
     items: [
       {
         title: "Joy in every discovery",
+        group: "learningFaith",
         category: "Everyday moments",
         src: "/images/Innaya/DSC_0135.jpg",
         alt: "Two smiling Inaayatullah pupils enjoying time on the school playground",
@@ -260,6 +293,7 @@ export const siteConfig = {
       },
       {
         title: "Learning through play",
+        group: "learningFaith",
         category: "Early Years",
         src: "/images/Innaya/DSC_0108.jpg",
         alt: "Young Inaayatullah pupils enjoying outdoor play on the school swings",
@@ -267,6 +301,7 @@ export const siteConfig = {
       },
       {
         title: "Rooted in the Qur'an",
+        group: "learningFaith",
         category: "Tahfiz",
         src: "/images/Innaya/DSC_0034.jpg",
         alt: "Inaayatullah pupils studying the Qur'an together in the Tahfiz classroom",
@@ -274,13 +309,39 @@ export const siteConfig = {
       },
       {
         title: "Recognition earned together",
+        group: "achievements",
         category: "Achievements",
         src: "/images/Innaya/DSC_0002.jpg",
         alt: "A display of awards and certificates earned by Inaayatullah learners",
         isPlaceholder: false,
       },
       {
+        title: "Excellence on display",
+        group: "achievements",
+        category: "Academic achievements",
+        src: "/images/Innaya/DSC_0010.jpg",
+        alt: "Framed awards and competition certificates earned by Inaayatullah learners",
+        isPlaceholder: false,
+      },
+      {
+        title: "A tradition of achievement",
+        group: "achievements",
+        category: "Awards",
+        src: "/images/Innaya/DSC_0005.jpg",
+        alt: "Trophies and framed competition awards displayed at Inaayatullah Academy",
+        isPlaceholder: false,
+      },
+      {
+        title: "Celebrating every milestone",
+        group: "achievements",
+        category: "Recognition",
+        src: "/images/Innaya/DSC_0007.jpg",
+        alt: "A collection of academic awards, trophies and certificates earned by Inaayatullah learners",
+        isPlaceholder: false,
+      },
+      {
         title: "Room to play and grow",
+        group: "sports",
         category: "Sports and recreation",
         src: "/images/Innaya/DSC_0125.jpg",
         alt: "Inaayatullah learners playing football across the Academy field",
@@ -288,6 +349,7 @@ export const siteConfig = {
       },
       {
         title: "Focus, skill and friendship",
+        group: "sports",
         category: "Table tennis",
         src: "/images/Innaya/DSC_0175.jpg",
         alt: "Inaayatullah students enjoying table tennis practice together",
@@ -295,13 +357,23 @@ export const siteConfig = {
       },
       {
         title: "Pride in every house",
+        group: "sports",
         category: "Sports houses",
         src: "/images/Innaya/DSC_0197.jpg",
         alt: "Inaayatullah students standing together in colourful sports house uniforms",
         isPlaceholder: false,
       },
       {
+        title: "Joy in every movement",
+        group: "sports",
+        category: "Team activities",
+        src: "/images/Innaya/DSC_0208.jpg",
+        alt: "Inaayatullah students in colourful sports house uniforms taking part in a team activity on the field",
+        isPlaceholder: false,
+      },
+      {
         title: "Growing together",
+        group: "community",
         category: "Early Years",
         src: "/images/Innaya/DSC_0111.jpg",
         alt: "Young Inaayatullah pupils smiling together during the school day",
@@ -309,9 +381,82 @@ export const siteConfig = {
       },
       {
         title: "Learning for tomorrow",
+        group: "learningFaith",
         category: "Digital learning",
         src: "/images/Innaya/IMG (25).png",
         alt: "Inaayatullah students developing digital skills during an ICT lesson",
+        isPlaceholder: false,
+      },
+      {
+        title: "Learning beneath the trees",
+        group: "learningFaith",
+        category: "Outdoor learning",
+        src: "/images/Innaya/DSC_0072.jpg",
+        alt: "Inaayatullah pupils reading and revising across the green school grounds",
+        isPlaceholder: false,
+      },
+      {
+        title: "A caring boarding community",
+        group: "community",
+        category: "Boarding life",
+        src: "/images/Innaya/DSC_0054.jpg",
+        alt: "Inaayatullah boarding students relaxing together in their hostel room",
+        isPlaceholder: false,
+      },
+      {
+        title: "Digital skills in action",
+        group: "learningFaith",
+        category: "ICT learning",
+        src: "/images/Innaya/IMG (9).png",
+        alt: "Inaayatullah students taking part in a practical computer lesson",
+        isPlaceholder: false,
+      },
+      {
+        title: "A campus built for growth",
+        group: "campus",
+        category: "Our campus",
+        src: "/images/Innaya/IMG (14).png",
+        alt: "An aerial view of the Inaayatullah campus, sports field and surrounding community",
+        isPlaceholder: false,
+      },
+      {
+        title: "Welcome to our campus",
+        group: "campus",
+        category: "School environment",
+        src: "/images/Innaya/DSC_0227.jpg",
+        alt: "A blue Inaayatullah Academy building surrounded by trees and landscaped grounds",
+        isPlaceholder: false,
+      },
+      {
+        title: "Ready for digital learning",
+        group: "campus",
+        category: "ICT facilities",
+        src: "/images/Innaya/DSC_0011.jpg",
+        alt: "The Inaayatullah computer laboratory equipped with laptops and classroom learning facilities",
+        isPlaceholder: false,
+      },
+      {
+        title: "Supporting every school journey",
+        group: "campus",
+        category: "School transport",
+        src: "/images/Innaya/DSC_0230.jpg",
+        alt: "Inaayatullah school buses parked within the landscaped Academy grounds",
+        isPlaceholder: false,
+      },
+      {
+        title: "The people who help us grow",
+        group: "community",
+        category: "School community",
+        src: "/images/Innaya/DSC_0242.jpg",
+        alt: "Members of the Inaayatullah school community standing together outside the Academy",
+        isPlaceholder: false,
+      },
+      {
+        title: "Confidence to lead",
+        group: "community",
+        category: "Student life",
+        src: "/images/Innaya/DSC_0151.jpg",
+        alt: "A smiling Inaayatullah student wearing white Islamic clothing",
         isPlaceholder: false,
       },
     ],
@@ -375,16 +520,26 @@ export const siteConfig = {
     { label: "Student Life", href: "/student-life" },
     { label: "Academics", href: "/#academic-programmes" },
     { label: "Tahfiz", href: "/#tahfiz" },
+    { label: "Gallery", href: "/gallery" },
     { label: "About", href: "/about" },
     { label: "Admissions", href: "/#admissions" },
     { label: "Contact", href: "/#contact" },
   ],
   media: {
-    hero: {
-      src: "/images/Innaya/DSC_0111.jpg",
-      alt: "A group of young Inaayatullah pupils smiling together on campus",
-      isPlaceholder: false,
-    },
+    hero: [
+      {
+        src: "/images/Innaya/DSC_0111.jpg",
+        alt: "A group of young Inaayatullah pupils smiling together on campus",
+      },
+      {
+        src: "/images/Innaya/DSC_0034.jpg",
+        alt: "Inaayatullah pupils studying the Qur'an together in the Tahfiz classroom",
+      },
+      {
+        src: "/images/Innaya/school.png",
+        alt: "The blue main building of Inaayatullah International Academy",
+      },
+    ],
     whoWeAre: {
       src: "/images/Innaya/IMG (25).png",
       alt: "Inaayatullah students developing digital skills during an ICT lesson",

@@ -2,9 +2,11 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { siteConfig } from "@/lib/site";
+import { getSiteConfig, sharedCopy, type Locale } from "@/lib/i18n";
 
-export function DirectorWelcome() {
+export function DirectorWelcome({ locale = "en" }: { locale?: Locale }) {
+  const siteConfig = getSiteConfig(locale);
+  const isArabic = locale === "ar";
   return (
     <section
       id="director-message"
@@ -15,19 +17,19 @@ export function DirectorWelcome() {
         <Reveal className="border-t-4 border-brand pt-6 sm:pt-8">
           <header className="grid gap-5 text-center lg:grid-cols-[1fr_auto] lg:items-end lg:gap-10 lg:text-left">
             <div>
-              <p className="eyebrow">Leadership and purpose</p>
+              <p className="eyebrow">{isArabic ? "قيادة ورسالة" : "Leadership and purpose"}</p>
               <h2 id="director-message-title" className="mx-auto mt-3 max-w-4xl text-balance text-3xl font-medium leading-tight text-brand sm:text-4xl lg:mx-0 lg:text-5xl">
-                Welcome message <span className="font-normal">from the Director.</span>
+                {isArabic ? <>كلمة ترحيبية <span className="font-normal">من المدير.</span></> : <>Welcome message <span className="font-normal">from the Director.</span></>}
               </h2>
               <p className="mt-4 font-display text-base leading-7 text-muted-foreground sm:text-lg">
                 {siteConfig.directorMessage.title}
               </p>
             </div>
             <div className="flex items-center justify-center gap-4 text-left lg:min-w-64 lg:justify-end">
-              <Image src="/brand/inaayatullah-crest.png" alt="Academy crest" width={48} height={48} className="size-12 shrink-0 rounded-full" />
+              <Image src="/brand/inaayatullah-crest.png" alt={isArabic ? "شعار الأكاديمية" : "Academy crest"} width={48} height={48} className="size-12 shrink-0 rounded-full" />
               <div>
                 <p className="text-sm font-extrabold text-brand">{siteConfig.founder.name}</p>
-                <p className="mt-1 text-xs leading-5 text-muted-foreground">Director</p>
+                <p className="mt-1 text-xs leading-5 text-muted-foreground">{sharedCopy[locale].director}</p>
               </div>
             </div>
           </header>
@@ -46,7 +48,7 @@ export function DirectorWelcome() {
               </p>
               <details className="group mt-6 border-t border-border pt-2">
                 <summary className="flex min-h-12 list-none items-center justify-between gap-4 py-2 text-sm font-extrabold text-brand [&::-webkit-details-marker]:hidden">
-                  <span>Read the full message</span>
+                  <span>{isArabic ? "اقرأ الرسالة كاملة" : "Read the full message"}</span>
                   <ChevronDown aria-hidden="true" className="size-5 shrink-0 transition-transform duration-300 group-open:rotate-180" />
                 </summary>
                 <div className="disclosure-content space-y-5 pb-2 pt-5 text-left text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">

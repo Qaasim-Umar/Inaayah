@@ -111,7 +111,8 @@ export default function RootLayout({
         className={`${manrope.variable} ${lora.variable} ${bricolageGrotesque.variable} ${notoNaskhArabic.variable}`}
       >
         <a className="skip-link" href="#main-content">
-          Skip to main content
+          <span className="skip-link__en">Skip to main content</span>
+          <span className="skip-link__ar" lang="ar" dir="rtl">انتقل إلى المحتوى الرئيسي</span>
         </a>
         {children}
       </body>

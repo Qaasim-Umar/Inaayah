@@ -35,14 +35,25 @@ next-env.d.ts
 # Academy photographs not used by the website
 /public/images/Innaya/*
 !/public/images/Innaya/DSC_0002.jpg
+!/public/images/Innaya/DSC_0005.jpg
+!/public/images/Innaya/DSC_0007.jpg
 !/public/images/Innaya/DSC_0010.jpg
+!/public/images/Innaya/DSC_0011.jpg
 !/public/images/Innaya/DSC_0034.jpg
+!/public/images/Innaya/DSC_0054.jpg
+!/public/images/Innaya/DSC_0072.jpg
 !/public/images/Innaya/DSC_0108.jpg
 !/public/images/Innaya/DSC_0111.jpg
 !/public/images/Innaya/DSC_0125.jpg
 !/public/images/Innaya/DSC_0135.jpg
+!/public/images/Innaya/DSC_0151.jpg
 !/public/images/Innaya/DSC_0175.jpg
 !/public/images/Innaya/DSC_0197.jpg
+!/public/images/Innaya/DSC_0208.jpg
+!/public/images/Innaya/DSC_0227.jpg
+!/public/images/Innaya/DSC_0230.jpg
+!/public/images/Innaya/DSC_0242.jpg
 !/public/images/Innaya/IMG (9).png
 !/public/images/Innaya/IMG (14).png
 !/public/images/Innaya/IMG (25).png
+!/public/images/Innaya/school.png

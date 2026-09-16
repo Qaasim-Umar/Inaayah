@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import type { Locale } from "@/lib/i18n";
 
 let hasPlayedInDocument = false;
 
-export function HomeIntro() {
+export function HomeIntro({ locale = "en" }: { locale?: Locale }) {
   const [shouldPlay] = useState(() => !hasPlayedInDocument);
   const [isVisible, setIsVisible] = useState(shouldPlay);
 
@@ -73,7 +74,7 @@ export function HomeIntro() {
               />
             </span>
           </div>
-          <p className="home-intro__name">Inaayatullah International Academy</p>
+          <p className="home-intro__name">{locale === "ar" ? "أكاديمية عناية الله الدولية" : "Inaayatullah International Academy"}</p>
         </div>
       </div>
     </>

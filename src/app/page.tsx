@@ -10,24 +10,29 @@ import { SiteHeader } from "@/components/site-header";
 import { TahfizSpotlight } from "@/components/tahfiz-spotlight";
 import { WhoWeAre } from "@/components/who-we-are";
 import { WhyChooseUs } from "@/components/why-choose-us";
+import type { Locale } from "@/lib/i18n";
 
-export default function Home() {
+export function HomePage({ locale = "en" }: { locale?: Locale }) {
   return (
     <>
-      <HomeIntro />
-      <SiteHeader />
+      <HomeIntro locale={locale} />
+      <SiteHeader locale={locale} />
       <main id="main-content">
-        <Hero />
-        <AcademyHighlights />
-        <WhoWeAre />
-        <AcademicProgrammes />
-        <DirectorWelcome />
-        <TahfizSpotlight />
-        <WhyChooseUs />
-        <AdmissionsInvitation />
-        <GalleryPreview />
+        <Hero locale={locale} />
+        <AcademyHighlights locale={locale} />
+        <WhoWeAre locale={locale} />
+        <AcademicProgrammes locale={locale} />
+        <DirectorWelcome locale={locale} />
+        <TahfizSpotlight locale={locale} />
+        <WhyChooseUs locale={locale} />
+        <AdmissionsInvitation locale={locale} />
+        <GalleryPreview locale={locale} />
       </main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </>
   );
+}
+
+export default function Home() {
+  return <HomePage />;
 }
