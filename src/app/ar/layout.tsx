@@ -15,8 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     locale: "ar_NG",
   },
+  other: {
+    google: "notranslate",
+  },
 };
 
 export default function ArabicLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <div lang="ar" dir="rtl" className="locale-ar min-h-dvh">{children}</div>;
+  return <div lang="ar" dir="rtl" translate="no" className="locale-ar notranslate min-h-dvh">{children}</div>;
 }
