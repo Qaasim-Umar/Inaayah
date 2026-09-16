@@ -77,8 +77,12 @@ export function SiteHeader({ locale = "en" }: { locale?: Locale }) {
       </div>
       <header ref={header} className="sticky top-0 z-50 border-b border-border/70 bg-surface shadow-sm" onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setIsOpen(false); }}>
         <Container className="relative">
-          <Link href={localizeHref("/", locale)} aria-label={`${siteConfig.name} ${locale === "ar" ? "الرئيسية" : "home"}`} className={cn("absolute top-1/2 z-10 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-brand-soft sm:hidden", locale === "ar" ? "right-5" : "left-5")}>
+          <Link href={localizeHref("/", locale)} aria-label={`${siteConfig.name} ${locale === "ar" ? "الرئيسية" : "home"}`} className={cn("absolute top-1/2 z-10 flex min-h-11 max-w-[calc(100vw-9rem)] -translate-y-1/2 items-center gap-2 rounded-md px-1 sm:hidden", locale === "ar" ? "right-5" : "left-5")}>
             <Image src="/brand/inaayatullah-crest.png" alt="" width={44} height={44} priority className="size-11 rounded-full" />
+            <span className="min-w-0 text-start" dir={locale === "ar" ? "rtl" : "ltr"}>
+              <span className="block truncate font-display text-sm font-semibold leading-tight text-brand">{copy.academyName}</span>
+              <span className="mt-0.5 block truncate text-[0.52rem] font-extrabold uppercase tracking-[0.07em] text-muted-foreground">{copy.academyDescriptor}</span>
+            </span>
           </Link>
           <nav dir="ltr" aria-label={copy.primaryNavigation} className={cn("flex min-h-20 items-center gap-2 sm:justify-between lg:min-h-24 lg:gap-3", locale === "ar" ? "justify-start sm:flex-row-reverse" : "justify-end")}>
             <Link dir={locale === "ar" ? "rtl" : "ltr"} href={localizeHref("/", locale)} aria-label={`${siteConfig.name} ${locale === "ar" ? "الرئيسية" : "home"}`} className="hidden min-w-0 shrink-0 items-center gap-2.5 rounded-md sm:flex sm:gap-3">

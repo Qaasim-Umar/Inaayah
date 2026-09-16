@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import {
   Bricolage_Grotesque,
   Manrope,
-  Noto_Naskh_Arabic,
+  Tajawal,
   Lora,
 } from "next/font/google";
 
@@ -31,10 +31,11 @@ const bricolageGrotesque = Bricolage_Grotesque({
   display: "swap",
 });
 
-const notoNaskhArabic = Noto_Naskh_Arabic({
-  subsets: ["arabic"],
+const tajawal = Tajawal({
+  subsets: ["arabic", "latin"],
+  weight: ["400", "500", "700", "800"],
   preload: false,
-  variable: "--font-noto-arabic",
+  variable: "--font-tajawal",
   display: "swap",
 });
 
@@ -108,7 +109,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${manrope.variable} ${lora.variable} ${bricolageGrotesque.variable} ${notoNaskhArabic.variable}`}
+        className={`${manrope.variable} ${lora.variable} ${bricolageGrotesque.variable} ${tajawal.variable}`}
       >
         <a className="skip-link" href="#main-content">
           <span className="skip-link__en">Skip to main content</span>

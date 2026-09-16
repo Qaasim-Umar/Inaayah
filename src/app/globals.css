@@ -48,7 +48,7 @@
   --font-display: var(--font-lora);
   --font-heading: var(--font-bricolage-grotesque);
   --font-hero: var(--font-bricolage-grotesque);
-  --font-arabic: var(--font-noto-arabic);
+  --font-arabic: var(--font-tajawal);
 
   --color-background: var(--theme-background);
   --color-foreground: var(--theme-foreground);
@@ -553,12 +553,12 @@ body:has(.locale-ar) .skip-link {
 }
 
 .font-arabic {
-  font-family: var(--font-noto-arabic), serif;
+  font-family: var(--font-tajawal), sans-serif;
 }
 
 .locale-ar,
 .locale-ar :where(h1, h2, h3, h4, h5, h6, .font-display, .font-heading, .font-hero) {
-  font-family: var(--font-noto-arabic), serif;
+  font-family: var(--font-tajawal), sans-serif;
 }
 
 .locale-ar :where(.eyebrow, [class*="tracking-"]) {
